@@ -128,6 +128,41 @@ def process_config_folders(
         raise typer.Exit(1)
 
 @app.command()
+def process_keywords(
+    folder_path: str = typer.Argument(..., help="Path to the folder containing markdown files to process for keyword linking"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Process keywords across all markdown files in a folder and create Obsidian links for similar concepts.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        folder_path_obj = Path(folder_path).absolute()
+        if not folder_path_obj.exists():
+            typer.echo(f"Error: Folder path '{folder_path_obj}' does not exist.")
+            raise typer.Exit(1)
+        
+        if not folder_path_obj.is_dir():
+            typer.echo(f"Error: '{folder_path_obj}' is not a directory.")
+            raise typer.Exit(1)
+        
+        typer.echo(f"Processing keywords in folder: {folder_path_obj}")
+        
+        # Initialize monitor with the folder path
+        monitor = VaultMonitor(folder_path_obj, config)
+        
+        # Process keywords for the folder
+        asyncio.run(monitor.process_keywords_for_folder(folder_path_obj))
+        
+        typer.echo("Keyword processing completed successfully.")
+        
+    except Exception as e:
+        typer.echo(f"Error: {e}")
+        raise typer.Exit(1)
+
+@app.command()
 def version():
     """Show the version of Cognitive Weaver."""
     from . import __version__

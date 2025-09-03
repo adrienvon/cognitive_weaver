@@ -53,6 +53,81 @@ def start(
         raise typer.Exit(1)
 
 @app.command()
+def process_folder(
+    folder_path: str = typer.Argument(..., help="Path to the folder containing markdown files to process"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Process all markdown files in a specific folder.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        folder_path = Path(folder_path).absolute()
+        if not folder_path.exists():
+            typer.echo(f"Error: Folder path '{folder_path}' does not exist.")
+            raise typer.Exit(1)
+        
+        if not folder_path.is_dir():
+            typer.echo(f"Error: '{folder_path}' is not a directory.")
+            raise typer.Exit(1)
+        
+        typer.echo(f"Processing folder: {folder_path}")
+        
+        # Initialize monitor with a dummy vault path (since we're processing a specific folder)
+        monitor = VaultMonitor(folder_path, config)
+        
+        # Process the folder
+        asyncio.run(monitor.process_folder(folder_path))
+        
+    except Exception as e:
+        typer.echo(f"Error: {e}")
+        raise typer.Exit(1)
+
+@app.command()
+def process_config_folders(
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Process all markdown files in folders specified in the configuration file.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        if not config.file_monitoring.folders_to_scan:
+            typer.echo("No folders specified in configuration. Please add 'folders_to_scan' to your config.yaml.")
+            raise typer.Exit(1)
+        
+        typer.echo(f"Processing folders from configuration: {config.file_monitoring.folders_to_scan}")
+        
+        # Initialize monitor with a dummy vault path (since we're processing specific folders)
+        # Use the first folder as dummy vault path
+        dummy_vault_path = Path(config.file_monitoring.folders_to_scan[0]).absolute()
+        monitor = VaultMonitor(dummy_vault_path, config)
+        
+        # Process each folder
+        for folder_path in config.file_monitoring.folders_to_scan:
+            folder_path_obj = Path(folder_path).absolute()
+            if not folder_path_obj.exists():
+                typer.echo(f"Warning: Folder path '{folder_path_obj}' does not exist. Skipping.")
+                continue
+            
+            if not folder_path_obj.is_dir():
+                typer.echo(f"Warning: '{folder_path_obj}' is not a directory. Skipping.")
+                continue
+            
+            typer.echo(f"Processing folder: {folder_path_obj}")
+            asyncio.run(monitor.process_folder(folder_path_obj))
+        
+        typer.echo("All configured folders processed successfully.")
+        
+    except Exception as e:
+        typer.echo(f"Error: {e}")
+        raise typer.Exit(1)
+
+@app.command()
 def version():
     """Show the version of Cognitive Weaver."""
     from . import __version__

@@ -36,6 +36,9 @@ python -m cognitive_weaver.cli start /path/to/your/obsidian/vault
 
 # 批量处理模式
 python -m cognitive_weaver.cli start /path/to/your/obsidian/vault --batch
+
+# 处理特定文件夹
+python -m cognitive_weaver.cli process-folder /path/to/your/folder
 ```
 
 ## 配置说明

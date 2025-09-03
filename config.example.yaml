@@ -27,6 +27,9 @@ file_monitoring:
   ignore_patterns:
     - "/.git/"
     - "/.obsidian/"
+  folders_to_scan:  # List of folder paths to scan for markdown files
+    - "/path/to/your/folder1"
+    - "/path/to/your/folder2"
 
 max_retries: 3  # Maximum retries for AI calls
 backup_files: true  # Whether to create backups before modifying files

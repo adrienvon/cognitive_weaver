@@ -55,6 +55,26 @@ class VaultMonitor:
         
         print("Batch processing completed.")
     
+    async def process_folder(self, folder_path: Path):
+        """Process all markdown files in a specific folder"""
+        if not folder_path.exists():
+            print(f"Error: Folder path '{folder_path}' does not exist.")
+            return
+        
+        if not folder_path.is_dir():
+            print(f"Error: '{folder_path}' is not a directory.")
+            return
+        
+        print(f"Processing folder: {folder_path}")
+        md_files = list(folder_path.rglob("*.md"))
+        print(f"Found {len(md_files)} markdown files in the folder")
+        
+        for file_path in md_files:
+            if self.should_process_file(file_path):
+                await self.process_file(file_path)
+        
+        print("Folder processing completed.")
+    
     async def process_file(self, file_path: Path):
         """Async processing of a single file"""
         if not self.should_process_file(file_path):

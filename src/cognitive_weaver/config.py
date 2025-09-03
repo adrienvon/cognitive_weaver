@@ -37,6 +37,7 @@ class FileMonitoringConfig(BaseModel):
     watch_extensions: List[str] = Field(default_factory=lambda: [".md"], description="File extensions to watch")
     context_window_size: int = Field(100, description="Number of characters around links for context")
     ignore_patterns: List[str] = Field(default_factory=lambda: ["/.git/", "/.obsidian/"], description="Patterns to ignore")
+    folders_to_scan: List[str] = Field(default_factory=list, description="List of folder paths to scan for markdown files")
 
 class CognitiveWeaverConfig(BaseModel):
     """Main configuration model"""

@@ -29,6 +29,7 @@ file_monitoring:
   folders_to_scan:  # List of folder paths to scan for markdown files
     - "tests/精神分析"
     - "tests/test_data/test_vault"
+    - "tests/"
 
 max_retries: 3  # Maximum retries for AI calls
 backup_files: true  # Whether to create backups before modifying files

@@ -39,6 +39,9 @@ python -m cognitive_weaver.cli start /path/to/your/obsidian/vault --batch
 
 # 处理特定文件夹
 python -m cognitive_weaver.cli process-folder /path/to/your/folder
+
+# 处理配置指定的文件夹
+python -m cognitive_weaver.cli process-config-folders --config config.yaml
 ```
 
 ## 配置说明
@@ -48,6 +51,7 @@ python -m cognitive_weaver.cli process-folder /path/to/your/folder
 - `ai_model`: AI模型配置（支持DeepSeek、OpenAI等）
 - `relations`: 关系类型配置
 - `file_monitoring`: 文件监控设置
+  - `folders_to_scan`: 要扫描的文件夹路径列表（例如：["folder1", "folder2/subfolder"]）
 - `max_retries`: AI调用重试次数
 - `backup_files`: 是否启用备份功能
 

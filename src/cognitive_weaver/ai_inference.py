@@ -71,6 +71,24 @@ class AIInferenceEngine:
 请判断关系并生成链接。
 """
     
+    async def generate_response(self, prompt: str, system_prompt: str = None) -> str:
+        """Generate a response from the AI model for general prompts"""
+        if system_prompt is None:
+            system_prompt = "你是一位有帮助的AI助手，擅长文本分析和关键词提取。"
+        
+        # Make the API call
+        response = self.client.chat.completions.create(
+            model=self.config.ai_model.model_name,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=self.config.ai_model.temperature,
+            max_tokens=200
+        )
+        
+        return response.choices[0].message.content
+
     async def _call_ai_model(self, prompt: str) -> str:
         """Call the AI model with the prepared prompt"""
         # System prompt from the prompt file

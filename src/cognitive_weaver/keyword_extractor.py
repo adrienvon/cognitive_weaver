@@ -181,27 +181,42 @@ class KeywordExtractor:
     async def _ai_verify_similarity(self, keyword_group: List[KeywordData]) -> List[KeywordData]:
         """
         Use AI to verify if keywords in a group refer to the same concept
+        with improved semantic understanding for psychology concepts
         """
         if len(keyword_group) < 2:
             return keyword_group
         
-        # Prepare context for AI analysis
+        # Prepare detailed context for AI analysis
         contexts = []
         for kd in keyword_group:
             contexts.append(f"关键词: '{kd.keyword}', 上下文: '{kd.context}', 文件: {kd.file_path.name}")
         
         prompt = f"""
-        请分析以下关键词是否指向同一个概念。如果是，回复"是"，否则回复"否"。
+        你是一位心理学知识图谱专家，擅长识别中文心理学概念之间的语义相似性。
 
+        请分析以下关键词是否指向同一个心理学概念或实体。考虑：
+        1. 语义相似性（同义词、近义词、相关概念）
+        2. 上下文中的使用方式
+        3. 心理学领域的专业含义
+
+        关键词组分析：
         {chr(10).join(contexts)}
+
+        如果这些关键词确实指向同一个心理学概念，回复"是"，否则回复"否"。
+
+        注意：即使关键词的字面形式不同，如果它们在心理学语境中表示相同的核心概念，也应该被认为是相同的。
         """
         
         try:
             response = await self.ai_engine._call_ai_model(prompt)
-            if "是" in response:
+            # More robust checking for affirmative responses
+            affirmative_responses = {"是", "是的", "相同", "一样", "同一个概念", "相同概念"}
+            response_lower = response.strip().lower()
+            
+            if any(affirmative in response_lower for affirmative in affirmative_responses):
                 return keyword_group
             else:
                 return []
         except Exception as e:
             print(f"AI similarity verification error: {e}")
-            return keyword_group  # Fallback: assume similar if AI fails
+            return []  # Don't assume similarity on AI failure

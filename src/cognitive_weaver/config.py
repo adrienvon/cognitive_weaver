@@ -1,6 +1,9 @@
 """
-Configuration module for Cognitive Weaver
 Cognitive Weaver 配置模块
+处理应用程序的配置设置
+
+Configuration module for Cognitive Weaver
+Handles application configuration settings
 """
 
 from pathlib import Path
@@ -9,7 +12,7 @@ import yaml
 from pydantic import BaseModel, Field
 
 class AIModelConfig(BaseModel):
-    """Configuration for AI model settings"""
+    """AI 模型设置的配置"""
     provider: str = Field("openai", description="AI provider: openai, ollama, deepseek, etc.")
     model_name: str = Field("gpt-3.5-turbo", description="Model name to use")
     api_key: Optional[str] = Field(None, description="API key for the provider")
@@ -17,7 +20,7 @@ class AIModelConfig(BaseModel):
     temperature: float = Field(0.1, description="Temperature for AI responses")
 
 class RelationConfig(BaseModel):
-    """Configuration for relationship types"""
+    """关系类型的配置"""
     predefined_relations: List[str] = Field(
         default_factory=lambda: [
             "支撑观点",
@@ -34,14 +37,14 @@ class RelationConfig(BaseModel):
     custom_relations: List[str] = Field(default_factory=list, description="Custom relationship types")
 
 class FileMonitoringConfig(BaseModel):
-    """Configuration for file monitoring"""
+    """文件监控的配置"""
     watch_extensions: List[str] = Field(default_factory=lambda: [".md"], description="File extensions to watch")
     context_window_size: int = Field(100, description="Number of characters around links for context")
     ignore_patterns: List[str] = Field(default_factory=lambda: ["/.git/", "/.obsidian/"], description="Patterns to ignore")
     folders_to_scan: List[str] = Field(default_factory=list, description="List of folder paths to scan for markdown files")
 
 class CognitiveWeaverConfig(BaseModel):
-    """Main configuration model"""
+    """主配置模型"""
     ai_model: AIModelConfig = Field(default_factory=AIModelConfig)
     relations: RelationConfig = Field(default_factory=RelationConfig)
     file_monitoring: FileMonitoringConfig = Field(default_factory=FileMonitoringConfig)
@@ -50,13 +53,13 @@ class CognitiveWeaverConfig(BaseModel):
 
 def load_config(config_file: Optional[str] = None) -> CognitiveWeaverConfig:
     """
-    Load configuration from file or use defaults.
+    从文件加载配置或使用默认配置。
     
-    Args:
-        config_file (Optional[str]): Path to the configuration file. If None, uses default configuration.
+    参数:
+        config_file (Optional[str]): 配置文件的路径。如果为 None，则使用默认配置。
     
-    Returns:
-        CognitiveWeaverConfig: The loaded configuration object.
+    返回:
+        CognitiveWeaverConfig: 加载的配置对象。
     """
     default_config = CognitiveWeaverConfig()
     
@@ -75,10 +78,10 @@ def load_config(config_file: Optional[str] = None) -> CognitiveWeaverConfig:
 
 def create_default_config(config_path: Path):
     """
-    Create a default configuration file at the specified path.
+    在指定路径创建默认配置文件。
     
-    Args:
-        config_path (Path): The path where the default configuration file should be created.
+    参数:
+        config_path (Path): 默认配置文件应创建的路径。
     """
     default_config = CognitiveWeaverConfig()
     config_data = default_config.dict()

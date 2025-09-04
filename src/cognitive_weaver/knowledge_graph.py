@@ -1,9 +1,10 @@
 """
+Cognitive Weaver 知识图谱模块
+处理用户配置文件作为图结构的存储和管理，包含节点（概念）和边（关系）
+
 Knowledge Graph module for Cognitive Weaver
 Handles storage and management of user profile as a graph structure
 with nodes (concepts) and edges (relationships)
-
-知识图谱模块 - 处理用户配置文件作为图结构的存储和管理，包含节点（概念）和边（关系）
 """
 
 import json
@@ -14,7 +15,7 @@ from datetime import datetime
 
 @dataclass
 class GraphNode:
-    """Represents a node in the knowledge graph"""
+    """表示知识图谱中的一个节点"""
     id: str
     label: str
     type: str
@@ -25,7 +26,7 @@ class GraphNode:
 
 @dataclass
 class GraphEdge:
-    """Represents an edge in the knowledge graph"""
+    """表示知识图谱中的一条边"""
     source: str
     target: str
     relationship: str
@@ -35,7 +36,7 @@ class GraphEdge:
     occurrences: int = 1
 
 class KnowledgeGraph:
-    """Manages the user's personal knowledge graph with nodes and edges"""
+    """管理用户的个人知识图谱，包含节点和边"""
     
     def __init__(self, storage_path: Optional[Path] = None):
         self.nodes: Dict[str, GraphNode] = {}
@@ -48,16 +49,16 @@ class KnowledgeGraph:
     
     def add_node(self, node_id: str, label: str, node_type: str = "concept", importance: float = 1.0) -> GraphNode:
         """
-        Add or update a node in the graph.
+        在图中添加或更新一个节点。
         
-        Args:
-            node_id (str): The unique identifier for the node.
-            label (str): The display label for the node.
-            node_type (str, optional): The type of the node (e.g., "concept"). Defaults to "concept".
-            importance (float, optional): The importance weight of the node. Defaults to 1.0.
+        参数:
+            node_id (str): 节点的唯一标识符。
+            label (str): 节点的显示标签。
+            node_type (str, optional): 节点的类型（例如 "concept"）。默认为 "concept"。
+            importance (float, optional): 节点的重要性权重。默认为 1.0。
         
-        Returns:
-            GraphNode: The added or updated node object.
+        返回:
+            GraphNode: 添加或更新的节点对象。
         """
         current_time = datetime.now().isoformat()
         
@@ -85,16 +86,16 @@ class KnowledgeGraph:
     
     def add_edge(self, source: str, target: str, relationship: str, strength: float = 1.0) -> Optional[GraphEdge]:
         """
-        Add or update an edge between nodes.
+        在节点之间添加或更新一条边。
         
-        Args:
-            source (str): The source node ID.
-            target (str): The target node ID.
-            relationship (str): The type of relationship between nodes.
-            strength (float, optional): The strength of the relationship. Defaults to 1.0.
+        参数:
+            source (str): 源节点ID。
+            target (str): 目标节点ID。
+            relationship (str): 节点之间的关系类型。
+            strength (float, optional): 关系的强度。默认为 1.0。
         
-        Returns:
-            Optional[GraphEdge]: The added or updated edge object, or None if nodes don't exist.
+        返回:
+            Optional[GraphEdge]: 添加或更新的边对象，如果节点不存在则返回 None。
         """
         # Check if both nodes exist
         if source not in self.nodes or target not in self.nodes:
@@ -128,10 +129,10 @@ class KnowledgeGraph:
     
     def to_json(self) -> dict:
         """
-        Convert the graph to JSON format.
+        将图谱转换为JSON格式。
         
-        Returns:
-            dict: A dictionary representation of the graph with nodes and edges.
+        返回:
+            dict: 包含节点和边的图谱字典表示。
         """
         return {
             "nodes": [asdict(node) for node in self.nodes.values()],
@@ -140,10 +141,10 @@ class KnowledgeGraph:
     
     def save(self, path: Optional[Path] = None):
         """
-        Save the graph to a JSON file.
+        将图谱保存到JSON文件。
         
-        Args:
-            path (Optional[Path]): The path to save the graph to. If None, uses the default storage path.
+        参数:
+            path (Optional[Path]): 保存图谱的路径。如果为 None，则使用默认存储路径。
         """
         save_path = path or self.storage_path
         save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -153,10 +154,10 @@ class KnowledgeGraph:
     
     def load(self, path: Optional[Path] = None):
         """
-        Load the graph from a JSON file.
+        从JSON文件加载图谱。
         
-        Args:
-            path (Optional[Path]): The path to load the graph from. If None, uses the default storage path.
+        参数:
+            path (Optional[Path]): 加载图谱的路径。如果为 None，则使用默认存储路径。
         """
         load_path = path or self.storage_path
         
@@ -184,25 +185,25 @@ class KnowledgeGraph:
     
     def get_node(self, node_id: str) -> Optional[GraphNode]:
         """
-        Get a node by ID.
+        通过ID获取节点。
         
-        Args:
-            node_id (str): The ID of the node to retrieve.
+        参数:
+            node_id (str): 要检索的节点ID。
         
-        Returns:
-            Optional[GraphNode]: The node object if found, otherwise None.
+        返回:
+            Optional[GraphNode]: 如果找到则返回节点对象，否则返回 None。
         """
         return self.nodes.get(node_id)
     
     def get_edges(self, node_id: str = None) -> List[GraphEdge]:
         """
-        Get all edges or edges for a specific node.
+        获取所有边或特定节点的边。
         
-        Args:
-            node_id (str, optional): The node ID to filter edges by. If None, returns all edges.
+        参数:
+            node_id (str, optional): 用于过滤边的节点ID。如果为 None，则返回所有边。
         
-        Returns:
-            List[GraphEdge]: A list of edge objects.
+        返回:
+            List[GraphEdge]: 边对象列表。
         """
         if node_id is None:
             return list(self.edge_objects.values())
@@ -212,16 +213,16 @@ class KnowledgeGraph:
     
     def export_json(self) -> str:
         """
-        Export the graph as JSON string.
+        将图谱导出为JSON字符串。
         
-        Returns:
-            str: A JSON string representation of the graph.
+        返回:
+            str: 图谱的JSON字符串表示。
         """
         return json.dumps(self.to_json(), ensure_ascii=False, indent=2)
     
     def clear(self):
         """
-        Clear the graph by removing all nodes and edges.
+        通过移除所有节点和边来清空图谱。
         """
         self.nodes.clear()
         self.edges.clear()

@@ -28,10 +28,15 @@ class LinkParser:
         # Regex to check if a line already has a relation link to avoid reprocessing
         self.relation_pattern = re.compile(r'\[\[(支撑观点|反驳观点|举例说明|定义概念|属于分类|包含部分|引出主题|简单提及)\]\]')
     
-    def parse_file(self, file_path: Path) -> List[LinkData]:
+    def parse_file(self, file_path: Path, skip_relation_links: bool = True) -> List[LinkData]:
         """
         Parse a markdown file and extract all Obsidian links with context
         Returns a list of LinkData objects
+        
+        Args:
+            file_path: Path to the markdown file
+            skip_relation_links: If True, skip lines that already have relation links
+                                (to avoid infinite processing). If False, include all lines.
         """
         if not file_path.exists():
             return []
@@ -44,8 +49,8 @@ class LinkParser:
                 lines = f.readlines()
             
             for line_num, line in enumerate(lines, 1):
-                # Skip lines that already have relation links to avoid infinite processing
-                if self.relation_pattern.search(line):
+                # Skip lines that already have relation links if specified
+                if skip_relation_links and self.relation_pattern.search(line):
                     continue
                 
                 # Find all links in this line

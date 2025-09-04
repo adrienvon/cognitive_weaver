@@ -13,6 +13,8 @@ Cognitive Weaver 是一个运行在本地的AI引擎，它能自动分析Obsidia
 - **实时文件监控**: 监控Obsidian vault变化，自动处理新添加的链接
 - **批量处理模式**: 支持对整个知识库进行一次性分析处理
 - **安全备份机制**: 文件修改前自动创建备份，防止数据丢失
+- **知识图谱构建**: 自动构建用户知识图谱，存储节点和关系数据
+- **JSON数据导出**: 支持导出知识图谱数据为JSON格式进行分析
 
 ## 安装依赖
 
@@ -68,6 +70,18 @@ python -m cognitive_weaver.cli process-folder /path/to/your/folder
 
 # 处理配置指定的文件夹
 python -m cognitive_weaver.cli process-config-folders --config config.yaml
+
+# 更新知识图谱（处理所有文件）
+python -m cognitive_weaver.cli update-knowledge-graph /path/to/your/obsidian/vault
+
+# 显示知识图谱统计信息
+python -m cognitive_weaver.cli show-knowledge-graph
+
+# 导出知识图谱为JSON文件
+python -m cognitive_weaver.cli export-knowledge-graph
+
+# 清空知识图谱数据
+python -m cognitive_weaver.cli clear-knowledge-graph
 ```
 
 ## 调试指南
@@ -106,6 +120,7 @@ cognitive_weaver/
 │       ├── ai_inference.py      # AI推理引擎
 │       ├── cli.py               # 命令行接口
 │       ├── config.py            # 配置管理
+│       ├── knowledge_graph.py   # 知识图谱模块（新增）
 │       ├── monitor.py           # 文件监控
 │       ├── parser.py            # 链接解析
 │       └── rewriter.py          # 文件重写器
@@ -120,6 +135,7 @@ cognitive_weaver/
 │           └── 无意识.md.bak    # 备份文件
 ├── config.example.yaml          # 示例配置文件
 ├── config.yaml                  # 用户配置文件（需创建）
+├── knowledge_graph.json         # 知识图谱数据文件（自动生成）
 ├── README.md                    # 项目文档
 └── requirements.txt             # Python依赖列表
 ```
@@ -130,9 +146,10 @@ cognitive_weaver/
 
 - **__init__.py**: Python包初始化文件，标识cognitive_weaver为一个Python包
 - **ai_inference.py**: AI推理引擎核心，负责调用AI模型分析笔记间的逻辑关系，支持多种关系类型推断
-- **cli.py**: 命令行接口，提供start命令用于启动实时监控或批量处理模式
+- **cli.py**: 命令行接口，提供start命令用于启动实时监控或批量处理模式，以及知识图谱管理命令
 - **config.py**: 配置管理模块，处理配置文件的加载、验证和提供配置访问接口
-- **monitor.py**: 文件系统监控模块，使用watchdog库监听Obsidian vault的文件变化事件
+- **knowledge_graph.py**: 知识图谱模块，管理用户知识图谱的构建、存储和查询
+- **monitor.py**: 文件系统监控模块，使用watchdog库监听Obsidian vault的文件变化事件，自动更新知识图谱
 - **parser.py**: 链接解析器，提取Markdown文件中的双链链接，分析链接上下文
 - **rewriter.py**: 文件重写器，负责安全地修改笔记文件，添加推断出的关系链接
 
@@ -146,6 +163,7 @@ cognitive_weaver/
 
 - **config.example.yaml**: 示例配置文件，展示所有可配置选项和默认值
 - **config.yaml**: 用户实际使用的配置文件（需要从示例复制并修改）
+- **knowledge_graph.json**: 自动生成的知识图谱数据文件，包含所有节点和关系信息
 
 ### 其他文件
 
@@ -165,6 +183,8 @@ cognitive_weaver/
 
 ## 使用示例
 
+### 关系链接处理
+
 处理前的笔记内容：
 ```markdown
 无意识不会在乎事实如何，无意识只在乎[[感受]]。
@@ -175,12 +195,74 @@ cognitive_weaver/
 无意识不会在乎事实如何，无意识只在乎[[感受]]。 [[支撑观点]]
 ```
 
+### 知识图谱数据
+
+知识图谱自动构建的数据结构（存储在knowledge_graph.json中）：
+```json
+{
+  "nodes": [
+    {
+      "id": "感受",
+      "title": "感受",
+      "file_path": "/path/to/感受.md",
+      "content_snippet": "感受是人类情感体验的核心...",
+      "created_at": "2024-01-15T10:30:00",
+      "updated_at": "2024-01-15T10:30:00"
+    },
+    {
+      "id": "无意识",
+      "title": "无意识",
+      "file_path": "/path/to/无意识.md", 
+      "content_snippet": "无意识不会在乎事实如何...",
+      "created_at": "2024-01-15T10:35:00",
+      "updated_at": "2024-01-15T10:35:00"
+    }
+  ],
+  "edges": [
+    {
+      "source": "无意识",
+      "target": "感受",
+      "relationship": "支撑观点",
+      "context": "无意识不会在乎事实如何，无意识只在乎感受",
+      "created_at": "2024-01-15T10:35:00"
+    }
+  ]
+}
+```
+
 ## 开发路线图
 
 - [x] 核心引擎开发（CLI框架、监控、解析、推理、重写）
+- [x] 知识图谱功能（节点管理、关系存储、JSON导出）
 - [ ] 功能增强与优化（配置文件、批量处理、备份机制）
 - [ ] Obsidian插件集成（图形化界面）
-- [ ] 高级分析功能（认知分析报告）
+- [ ] 高级分析功能（认知分析报告、可视化展示）
+
+## 知识图谱功能详解
+
+Cognitive Weaver现在包含完整的知识图谱功能，能够自动构建和维护用户的知识结构：
+
+### 数据结构
+- **节点 (Nodes)**: 表示笔记文件，包含标题、文件路径、内容片段等信息
+- **边 (Edges)**: 表示笔记间的关系，包含源节点、目标节点、关系类型和上下文
+
+### 自动构建
+知识图谱在以下情况下自动更新：
+- 实时监控模式下检测到文件变化
+- 批量处理模式下处理整个知识库
+- 使用`update-knowledge-graph`命令显式更新
+
+### 数据持久化
+知识图谱数据自动保存到`knowledge_graph.json`文件中，支持：
+- 增量更新（只添加新的节点和关系）
+- JSON格式导出用于外部分析
+- 数据清空和重新构建
+
+### 使用场景
+1. **知识发现**: 分析笔记间的关联模式
+2. **内容分析**: 识别核心概念和热门话题
+3. **学习追踪**: 跟踪知识构建过程和时间线
+4. **外部集成**: 导出数据到其他分析工具
 
 ## 许可证
 

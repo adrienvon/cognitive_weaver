@@ -7,8 +7,10 @@ import typer
 from pathlib import Path
 from typing import Optional
 import asyncio
+import json
 from .monitor import VaultMonitor
 from .config import load_config
+from .knowledge_graph import KnowledgeGraph
 
 app = typer.Typer(help="Cognitive Weaver - AI-powered Obsidian knowledge graph structuring engine")
 
@@ -160,6 +162,126 @@ def process_keywords(
         
     except Exception as e:
         typer.echo(f"Error: {e}")
+        raise typer.Exit(1)
+
+@app.command()
+def export_knowledge_graph(
+    output_file: Optional[str] = typer.Option(None, "--output", "-o", help="Output file path for the knowledge graph"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Export the user's knowledge graph to a JSON file.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        # Initialize knowledge graph
+        knowledge_graph = KnowledgeGraph()
+        
+        # Export to JSON
+        graph_data = knowledge_graph.to_json()
+        
+        if output_file:
+            output_path = Path(output_file).absolute()
+            knowledge_graph.save(output_path)
+            typer.echo(f"Knowledge graph exported to: {output_path}")
+        else:
+            # Print to stdout
+            typer.echo(json.dumps(graph_data, ensure_ascii=False, indent=2))
+            
+    except Exception as e:
+        typer.echo(f"Error exporting knowledge graph: {e}")
+        raise typer.Exit(1)
+
+@app.command()
+def show_knowledge_graph(
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Display the current knowledge graph structure.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        # Initialize knowledge graph
+        knowledge_graph = KnowledgeGraph()
+        
+        # Get graph data
+        graph_data = knowledge_graph.to_json()
+        
+        typer.echo("Knowledge Graph Summary:")
+        typer.echo(f"Nodes: {len(graph_data['nodes'])}")
+        typer.echo(f"Edges: {len(graph_data['edges'])}")
+        typer.echo("")
+        
+        if graph_data['nodes']:
+            typer.echo("Nodes:")
+            for node in graph_data['nodes']:
+                typer.echo(f"  - {node['id']} ({node['type']}): {node['label']} [Occurrences: {node['occurrences']}]")
+        
+        if graph_data['edges']:
+            typer.echo("")
+            typer.echo("Edges:")
+            for edge in graph_data['edges']:
+                typer.echo(f"  - {edge['source']} --[{edge['relationship']}]--> {edge['target']} [Strength: {edge['strength']:.2f}]")
+                
+    except Exception as e:
+        typer.echo(f"Error showing knowledge graph: {e}")
+        raise typer.Exit(1)
+
+@app.command()
+def clear_knowledge_graph(
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Clear the current knowledge graph.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        # Initialize knowledge graph
+        knowledge_graph = KnowledgeGraph()
+        knowledge_graph.clear()
+        knowledge_graph.save()
+        
+        typer.echo("Knowledge graph cleared successfully.")
+        
+    except Exception as e:
+        typer.echo(f"Error clearing knowledge graph: {e}")
+        raise typer.Exit(1)
+
+@app.command()
+def update_knowledge_graph(
+    vault_path: str = typer.Argument(..., help="Path to your Obsidian vault directory"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+):
+    """
+    Update knowledge graph from all existing files, including those with relation links.
+    """
+    try:
+        # Load configuration
+        config = load_config(config_file)
+        
+        vault_path = Path(vault_path).absolute()
+        if not vault_path.exists():
+            typer.echo(f"Error: Vault path '{vault_path}' does not exist.")
+            raise typer.Exit(1)
+        
+        typer.echo(f"Updating knowledge graph from vault: {vault_path}")
+        
+        # Initialize monitor
+        monitor = VaultMonitor(vault_path, config)
+        
+        # Update knowledge graph from existing files
+        asyncio.run(monitor.update_knowledge_graph_from_existing_files())
+        
+        typer.echo("Knowledge graph update completed successfully.")
+        
+    except Exception as e:
+        typer.echo(f"Error updating knowledge graph: {e}")
         raise typer.Exit(1)
 
 @app.command()

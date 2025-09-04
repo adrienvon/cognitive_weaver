@@ -14,6 +14,7 @@ from .parser import LinkParser
 from .ai_inference import AIInferenceEngine
 from .rewriter import FileRewriter
 from .keyword_extractor import KeywordExtractor
+from .knowledge_graph import KnowledgeGraph
 
 class VaultMonitor:
     """Monitors the Obsidian vault for file changes and processes them"""
@@ -31,6 +32,7 @@ class VaultMonitor:
         self.ai_engine = AIInferenceEngine(config)
         self.file_rewriter = FileRewriter(config)
         self.keyword_extractor = KeywordExtractor(config, self.ai_engine)
+        self.knowledge_graph = KnowledgeGraph()
     
     def start_watching(self):
         """Start watching the vault for file changes"""
@@ -104,6 +106,8 @@ class VaultMonitor:
                             await self.file_rewriter.add_relation_to_file(
                                 file_path, link_data, relation_link
                             )
+                            # Update knowledge graph with nodes and edges
+                            self._update_knowledge_graph(link_data, relation_link)
                 else:
                     print(f"No links found in {file_path.name}")
                 
@@ -154,6 +158,9 @@ class VaultMonitor:
                     )
         
         print("Keyword linking completed.")
+        
+        # Save the knowledge graph after keyword processing
+        self.knowledge_graph.save()
     
     def process_file_sync(self, file_path: Path):
         """Synchronous wrapper for async file processing (for event handler)"""
@@ -180,6 +187,98 @@ class VaultMonitor:
                 return False
         
         return True
+    
+    async def update_knowledge_graph_from_existing_files(self):
+        """Update knowledge graph from all existing files, including those with relation links"""
+        print("Updating knowledge graph from existing files...")
+        md_files = list(self.vault_path.rglob("*.md"))
+        print(f"Found {len(md_files)} markdown files")
+        
+        for file_path in md_files:
+            if self.should_process_file(file_path):
+                await self._update_knowledge_graph_from_file(file_path)
+        
+        # Save the final knowledge graph
+        self.knowledge_graph.save()
+        print("Knowledge graph update completed.")
+    
+    async def _update_knowledge_graph_from_file(self, file_path: Path):
+        """Update knowledge graph from a single file, including existing relation links"""
+        try:
+            # Parse file without skipping relation links to extract all relationships
+            links_with_relations = self.link_parser.parse_file(file_path, skip_relation_links=False)
+            
+            if not links_with_relations:
+                return
+            
+            print(f"Found {len(links_with_relations)} links in {file_path.name} for knowledge graph")
+            
+            # Extract relation links from the file content
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Find all relation links in the file
+            relation_matches = self.link_parser.relation_pattern.finditer(content)
+            
+            for match in relation_matches:
+                relation_link = match.group(0)  # Full relation link like "[[简单提及]]"
+                relation_type = relation_link.strip("[]")
+                
+                # For each relation link, we need to find the source and target concepts
+                # This is complex because we need to parse the context around the relation link
+                # For now, we'll focus on the main link parsing approach
+                pass
+            
+            # Process each link to update knowledge graph
+            for link_data in links_with_relations:
+                # For existing relation links, we need to extract the relation type from the line
+                if self.link_parser.has_relation_links(link_data.original_line):
+                    # Extract relation type from the line
+                    relation_match = self.link_parser.relation_pattern.search(link_data.original_line)
+                    if relation_match:
+                        relation_link = relation_match.group(0)
+                        self._update_knowledge_graph(link_data, relation_link)
+            
+        except Exception as e:
+            print(f"Error updating knowledge graph from {file_path.name}: {e}")
+    
+    def _update_knowledge_graph(self, link_data, relation_link):
+        """Update knowledge graph with nodes and relationships from processed links"""
+        try:
+            # Extract source and target concepts from link data
+            source_concept = link_data.source_note  # The file where the link is
+            target_concept = link_data.target_note  # The linked note
+            
+            # Extract relation type from relation_link (e.g., "[[简单提及]]" -> "简单提及")
+            relation_type = relation_link.strip("[]")
+            
+            # Add nodes to knowledge graph
+            source_node = self.knowledge_graph.add_node(
+                source_concept, 
+                source_concept, 
+                "concept",
+                importance=1.0
+            )
+            target_node = self.knowledge_graph.add_node(
+                target_concept,
+                target_concept,
+                "concept", 
+                importance=1.0
+            )
+            
+            # Add edge between nodes with the relation type
+            self.knowledge_graph.add_edge(
+                source_concept,
+                target_concept,
+                relation_type,  # Use the relation type as edge label
+                strength=1.0
+            )
+            
+            # Save the knowledge graph
+            self.knowledge_graph.save()
+            
+        except Exception as e:
+            print(f"Error updating knowledge graph: {e}")
 
 class VaultEventHandler(FileSystemEventHandler):
     """Handles file system events for the vault"""

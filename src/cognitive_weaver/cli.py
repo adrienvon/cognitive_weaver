@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+Cognitive Weaver CLI - AI驱动的Obsidian知识图谱结构化引擎的主要入口点
 Cognitive Weaver CLI - Main entry point for the AI-powered Obsidian knowledge graph structuring engine
 """
 

@@ -1,10 +1,9 @@
 # Cognitive Weaver Configuration
-# Copy this file to config.yaml and customize as needed
 
 ai_model:
   provider: "deepseek"  # Options: openai, deepseek, ollama
   model_name: "deepseek-chat"  # Model name for the provider
-  api_key: "sk-3bde3d12ab464212aec4be3113016b33"  # Your API key
+  api_key: "YOUR_API_KEY_HERE"  # Your API key
   base_url: "https://api.deepseek.com"  # Base URL for API calls
   temperature: 0.1  # Controls randomness of AI responses
 
@@ -28,8 +27,9 @@ file_monitoring:
     - "/.git/"
     - "/.obsidian/"
   folders_to_scan:  # List of folder paths to scan for markdown files
-    - "/path/to/your/folder1"
-    - "/path/to/your/folder2"
+    - "tests/精神分析"
+    - "tests/test_data/test_vault"
+    - "tests/"
 
 max_retries: 3  # Maximum retries for AI calls
 backup_files: true  # Whether to create backups before modifying files

@@ -1,6 +1,8 @@
 """
 Link parsing module for Cognitive Weaver
 Extracts Obsidian links and their context from markdown files
+
+链接解析模块 - 从Markdown文件中提取Obsidian链接及其上下文
 """
 
 import re

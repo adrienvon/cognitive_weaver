@@ -1,6 +1,9 @@
 """
 File monitoring module for Cognitive Weaver
 Uses watchdog to monitor file changes in the Obsidian vault
+
+Cognitive Weaver 的文件监控模块
+使用 watchdog 库监控 Obsidian 知识库中的文件变化
 """
 
 import asyncio
@@ -17,15 +20,24 @@ from .keyword_extractor import KeywordExtractor
 from .knowledge_graph import KnowledgeGraph
 
 class VaultMonitor:
-    """Monitors the Obsidian vault for file changes and processes them"""
+    """Monitors the Obsidian vault for file changes and processes them
+    
+    监控 Obsidian 知识库的文件变化并处理它们
+    """
     
     def __init__(self, vault_path: Path, config):
         """
         Initialize the vault monitor with configuration and components.
         
+        使用配置和组件初始化知识库监控器
+        
         Args:
             vault_path (Path): Path to the Obsidian vault directory
             config: Configuration object containing monitoring settings
+            
+            参数:
+                vault_path (Path): Obsidian 知识库目录的路径
+                config: 包含监控设置的配置对象
         """
         self.vault_path = vault_path
         self.config = config
@@ -45,11 +57,18 @@ class VaultMonitor:
         """
         Start watching the vault for file changes.
         
+        开始监控知识库的文件变化。
+        
         This method starts the file system observer and enters an infinite loop
         to keep the monitoring active until interrupted by keyboard.
         
+        此方法启动文件系统观察器并进入无限循环以保持监控活动，直到被键盘中断。
+        
         Returns:
             None
+            
+        返回:
+            无
         """
         self.observer.schedule(self.event_handler, str(self.vault_path), recursive=True)
         self.observer.start()
@@ -66,8 +85,13 @@ class VaultMonitor:
         """
         Process all markdown files in the vault in batch mode.
         
+        批量处理知识库中的所有 Markdown 文件。
+        
         Returns:
             None
+            
+        返回:
+            无
         """
         print("Processing entire vault in batch mode...")
         md_files = list(self.vault_path.rglob("*.md"))
@@ -83,11 +107,19 @@ class VaultMonitor:
         """
         Process all markdown files in a specific folder.
         
+        处理特定文件夹中的所有 Markdown 文件。
+        
         Args:
             folder_path (Path): Path to the folder to process
             
+            参数:
+                folder_path (Path): 要处理的文件夹路径
+            
         Returns:
             None
+            
+        返回:
+            无
         """
         if not folder_path.exists():
             print(f"Error: Folder path '{folder_path}' does not exist.")
@@ -111,11 +143,19 @@ class VaultMonitor:
         """
         Async processing of a single file.
         
+        异步处理单个文件。
+        
         Args:
             file_path (Path): Path to the file to process
             
+            参数:
+                file_path (Path): 要处理的文件路径
+            
         Returns:
             None
+            
+        返回:
+            无
         """
         if not self.should_process_file(file_path):
             return
@@ -156,11 +196,19 @@ class VaultMonitor:
         """
         Process keywords across all files in a folder for automatic linking.
         
+        处理文件夹中所有文件的关键词以进行自动链接。
+        
         Args:
             folder_path (Path): Path to the folder to process keywords for
             
+            参数:
+                folder_path (Path): 要处理关键词的文件夹路径
+            
         Returns:
             None
+            
+        返回:
+            无
         """
         print(f"Processing keywords for folder: {folder_path}")
         
@@ -210,11 +258,19 @@ class VaultMonitor:
         """
         Synchronous wrapper for async file processing (for event handler).
         
+        异步文件处理的同步包装器（用于事件处理器）。
+        
         Args:
             file_path (Path): Path to the file to process
             
+            参数:
+                file_path (Path): 要处理的文件路径
+            
         Returns:
             None
+            
+        返回:
+            无
         """
         if not self.should_process_file(file_path):
             return
@@ -231,11 +287,19 @@ class VaultMonitor:
         """
         Check if a file should be processed based on config.
         
+        根据配置检查文件是否应该被处理。
+        
         Args:
             file_path (Path): Path to the file to check
             
+            参数:
+                file_path (Path): 要检查的文件路径
+            
         Returns:
             bool: True if the file should be processed, False otherwise
+            
+        返回:
+            bool: 如果文件应该被处理则为 True，否则为 False
         """
         if not file_path.is_file() or file_path.suffix != ".md":
             return False
@@ -252,8 +316,13 @@ class VaultMonitor:
         """
         Update knowledge graph from all existing files, including those with relation links.
         
+        从所有现有文件更新知识图谱，包括那些包含关系链接的文件。
+        
         Returns:
             None
+            
+        返回:
+            无
         """
         print("Updating knowledge graph from existing files...")
         md_files = list(self.vault_path.rglob("*.md"))
@@ -271,11 +340,19 @@ class VaultMonitor:
         """
         Update knowledge graph from a single file, including existing relation links.
         
+        从单个文件更新知识图谱，包括现有的关系链接。
+        
         Args:
             file_path (Path): Path to the file to update from
             
+            参数:
+                file_path (Path): 要从中更新知识图谱的文件路径
+            
         Returns:
             None
+            
+        返回:
+            无
         """
         try:
             # Parse file without skipping relation links to extract all relationships

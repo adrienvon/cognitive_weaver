@@ -1,5 +1,6 @@
 """
 Configuration module for Cognitive Weaver
+Cognitive Weaver 配置模块
 """
 
 from pathlib import Path

@@ -2,6 +2,8 @@
 Keyword extraction module for Cognitive Weaver
 Handles extraction of potential keywords from markdown files
 and AI-based similarity detection for linking
+
+关键词提取模块 - 处理从Markdown文件中提取潜在关键词和基于AI的相似性检测以进行链接
 """
 
 import re

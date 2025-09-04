@@ -2,6 +2,8 @@
 Knowledge Graph module for Cognitive Weaver
 Handles storage and management of user profile as a graph structure
 with nodes (concepts) and edges (relationships)
+
+知识图谱模块 - 处理用户配置文件作为图结构的存储和管理，包含节点（概念）和边（关系）
 """
 
 import json

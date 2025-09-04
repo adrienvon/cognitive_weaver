@@ -1,6 +1,8 @@
 """
 AI inference module for Cognitive Weaver
 Handles communication with AI models for relationship extraction
+
+AI推理模块 - 处理与AI模型的通信以进行关系提取
 """
 
 import asyncio

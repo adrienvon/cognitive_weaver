@@ -16,20 +16,46 @@ Cognitive Weaver 是一个运行在本地的AI引擎，它能自动分析Obsidia
 
 ## 安装依赖
 
+### 推荐使用虚拟环境
+
+为了保持依赖隔离和项目一致性，建议使用虚拟环境：
+
+```bash
+# 创建虚拟环境
+python -m venv venv
+
+# 激活虚拟环境 (Windows)
+venv\Scripts\activate
+
+# 激活虚拟环境 (Linux/Mac)
+source venv/bin/activate
+
+# 安装依赖
+pip install -r requirements.txt
+```
+
+### 直接安装（不推荐）
 ```bash
 pip install -r requirements.txt
 ```
 
 ## 快速开始
 
-1. **复制配置文件**:
+1. **设置虚拟环境**（推荐）：
+```bash
+python -m venv venv
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
+```
+
+2. **复制配置文件**:
 ```bash
 cp config.example.yaml config.yaml
 ```
 
-2. **配置API密钥**: 在`config.yaml`中设置您的DeepSeek API密钥
+3. **配置API密钥**: 在`config.yaml`中设置您的DeepSeek API密钥
 
-3. **启动服务** (从项目根目录运行):
+4. **启动服务** (从项目根目录运行):
 ```bash
 # 实时监控模式
 python -m cognitive_weaver.cli start /path/to/your/obsidian/vault
@@ -42,6 +68,21 @@ python -m cognitive_weaver.cli process-folder /path/to/your/folder
 
 # 处理配置指定的文件夹
 python -m cognitive_weaver.cli process-config-folders --config config.yaml
+```
+
+## 调试指南
+
+项目已配置调试支持，您可以在虚拟环境中使用以下方式进行调试：
+
+```bash
+# 确保在虚拟环境中
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
+
+# 运行调试模式
+python -m debugpy --listen 5678 -m cognitive_weaver.cli start /path/to/vault
+
+# 或者使用IDE配置远程调试，连接到localhost:5678
 ```
 
 ## 配置说明

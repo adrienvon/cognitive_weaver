@@ -49,7 +49,13 @@ class CognitiveWeaverConfig(BaseModel):
 
 def load_config(config_file: Optional[str] = None) -> CognitiveWeaverConfig:
     """
-    Load configuration from file or use defaults
+    Load configuration from file or use defaults.
+    
+    Args:
+        config_file (Optional[str]): Path to the configuration file. If None, uses default configuration.
+    
+    Returns:
+        CognitiveWeaverConfig: The loaded configuration object.
     """
     default_config = CognitiveWeaverConfig()
     
@@ -67,7 +73,12 @@ def load_config(config_file: Optional[str] = None) -> CognitiveWeaverConfig:
     return default_config
 
 def create_default_config(config_path: Path):
-    """Create a default configuration file"""
+    """
+    Create a default configuration file at the specified path.
+    
+    Args:
+        config_path (Path): The path where the default configuration file should be created.
+    """
     default_config = CognitiveWeaverConfig()
     config_data = default_config.dict()
     

@@ -20,6 +20,13 @@ class VaultMonitor:
     """Monitors the Obsidian vault for file changes and processes them"""
     
     def __init__(self, vault_path: Path, config):
+        """
+        Initialize the vault monitor with configuration and components.
+        
+        Args:
+            vault_path (Path): Path to the Obsidian vault directory
+            config: Configuration object containing monitoring settings
+        """
         self.vault_path = vault_path
         self.config = config
         self.observer = Observer()
@@ -35,7 +42,15 @@ class VaultMonitor:
         self.knowledge_graph = KnowledgeGraph()
     
     def start_watching(self):
-        """Start watching the vault for file changes"""
+        """
+        Start watching the vault for file changes.
+        
+        This method starts the file system observer and enters an infinite loop
+        to keep the monitoring active until interrupted by keyboard.
+        
+        Returns:
+            None
+        """
         self.observer.schedule(self.event_handler, str(self.vault_path), recursive=True)
         self.observer.start()
         print(f"Started watching vault: {self.vault_path}")
@@ -48,7 +63,12 @@ class VaultMonitor:
         self.observer.join()
     
     async def process_entire_vault(self):
-        """Process all markdown files in the vault in batch mode"""
+        """
+        Process all markdown files in the vault in batch mode.
+        
+        Returns:
+            None
+        """
         print("Processing entire vault in batch mode...")
         md_files = list(self.vault_path.rglob("*.md"))
         print(f"Found {len(md_files)} markdown files")
@@ -60,7 +80,15 @@ class VaultMonitor:
         print("Batch processing completed.")
     
     async def process_folder(self, folder_path: Path):
-        """Process all markdown files in a specific folder"""
+        """
+        Process all markdown files in a specific folder.
+        
+        Args:
+            folder_path (Path): Path to the folder to process
+            
+        Returns:
+            None
+        """
         if not folder_path.exists():
             print(f"Error: Folder path '{folder_path}' does not exist.")
             return
@@ -80,7 +108,15 @@ class VaultMonitor:
         print("Folder processing completed.")
     
     async def process_file(self, file_path: Path):
-        """Async processing of a single file"""
+        """
+        Async processing of a single file.
+        
+        Args:
+            file_path (Path): Path to the file to process
+            
+        Returns:
+            None
+        """
         if not self.should_process_file(file_path):
             return
         
@@ -117,7 +153,15 @@ class VaultMonitor:
                 self.processed_files.remove(file_path)
     
     async def process_keywords_for_folder(self, folder_path: Path):
-        """Process keywords across all files in a folder for automatic linking"""
+        """
+        Process keywords across all files in a folder for automatic linking.
+        
+        Args:
+            folder_path (Path): Path to the folder to process keywords for
+            
+        Returns:
+            None
+        """
         print(f"Processing keywords for folder: {folder_path}")
         
         # Collect all markdown files
@@ -163,7 +207,15 @@ class VaultMonitor:
         self.knowledge_graph.save()
     
     def process_file_sync(self, file_path: Path):
-        """Synchronous wrapper for async file processing (for event handler)"""
+        """
+        Synchronous wrapper for async file processing (for event handler).
+        
+        Args:
+            file_path (Path): Path to the file to process
+            
+        Returns:
+            None
+        """
         if not self.should_process_file(file_path):
             return
         
@@ -176,7 +228,15 @@ class VaultMonitor:
             loop.close()
     
     def should_process_file(self, file_path: Path) -> bool:
-        """Check if a file should be processed based on config"""
+        """
+        Check if a file should be processed based on config.
+        
+        Args:
+            file_path (Path): Path to the file to check
+            
+        Returns:
+            bool: True if the file should be processed, False otherwise
+        """
         if not file_path.is_file() or file_path.suffix != ".md":
             return False
         
@@ -189,7 +249,12 @@ class VaultMonitor:
         return True
     
     async def update_knowledge_graph_from_existing_files(self):
-        """Update knowledge graph from all existing files, including those with relation links"""
+        """
+        Update knowledge graph from all existing files, including those with relation links.
+        
+        Returns:
+            None
+        """
         print("Updating knowledge graph from existing files...")
         md_files = list(self.vault_path.rglob("*.md"))
         print(f"Found {len(md_files)} markdown files")
@@ -203,7 +268,15 @@ class VaultMonitor:
         print("Knowledge graph update completed.")
     
     async def _update_knowledge_graph_from_file(self, file_path: Path):
-        """Update knowledge graph from a single file, including existing relation links"""
+        """
+        Update knowledge graph from a single file, including existing relation links.
+        
+        Args:
+            file_path (Path): Path to the file to update from
+            
+        Returns:
+            None
+        """
         try:
             # Parse file without skipping relation links to extract all relationships
             links_with_relations = self.link_parser.parse_file(file_path, skip_relation_links=False)
@@ -243,7 +316,16 @@ class VaultMonitor:
             print(f"Error updating knowledge graph from {file_path.name}: {e}")
     
     def _update_knowledge_graph(self, link_data, relation_link):
-        """Update knowledge graph with nodes and relationships from processed links"""
+        """
+        Update knowledge graph with nodes and relationships from processed links.
+        
+        Args:
+            link_data: Link data object containing source and target information
+            relation_link: The relation link string (e.g., "[[简单提及]]")
+            
+        Returns:
+            None
+        """
         try:
             # Extract source and target concepts from link data
             source_concept = link_data.source_note  # The file where the link is
@@ -284,13 +366,28 @@ class VaultEventHandler(FileSystemEventHandler):
     """Handles file system events for the vault"""
     
     def __init__(self, process_callback: Callable, config):
+        """
+        Initialize the event handler with a process callback and configuration.
+        
+        Args:
+            process_callback (Callable): Callback function to process file changes
+            config: Configuration object containing monitoring settings
+        """
         self.process_callback = process_callback
         self.config = config
         self.last_processed = 0
         self.debounce_time = 2.0  # seconds
     
     def on_modified(self, event):
-        """Handle file modification events"""
+        """
+        Handle file modification events.
+        
+        Args:
+            event: File system event object
+            
+        Returns:
+            None
+        """
         if not isinstance(event, FileModifiedEvent):
             return
         
@@ -307,7 +404,15 @@ class VaultEventHandler(FileSystemEventHandler):
         self.process_callback(file_path)
     
     def should_process_event(self, file_path: Path) -> bool:
-        """Check if an event should be processed"""
+        """
+        Check if an event should be processed.
+        
+        Args:
+            file_path (Path): Path to the file from the event
+            
+        Returns:
+            bool: True if the event should be processed, False otherwise
+        """
         if not file_path.is_file() or file_path.suffix != ".md":
             return False
         

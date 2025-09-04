@@ -11,15 +11,43 @@ from typing import Optional
 from .parser import LinkData
 
 class FileRewriter:
-    """Handles safe file rewriting operations"""
+    """Handles safe file rewriting operations for Cognitive Weaver.
+    
+    This class provides methods to safely modify files by creating backups,
+    using temporary files during writes, and restoring from backups when needed.
+    
+    Args:
+        config: The application configuration object containing settings
+                like backup_files flag and other operational parameters.
+    """
     
     def __init__(self, config):
+        """Initialize the FileRewriter with configuration.
+        
+        Args:
+            config: The application configuration object.
+        """
         self.config = config
     
     async def add_relation_to_file(self, file_path: Path, link_data: LinkData, relation_link: str) -> bool:
-        """
-        Add a relation link to the specified file at the correct position
-        Returns True if successful, False otherwise
+        """Add a relation link to the specified file at the correct position.
+        
+        This method safely adds a relation link to a file by:
+        1. Creating a backup if configured
+        2. Reading the file content
+        3. Finding the target line based on link data
+        4. Checking for duplicate links to avoid adding the same link multiple times
+        5. Adding the relation link to the end of the target line
+        6. Writing the modified content back safely using a temporary file
+        
+        Args:
+            file_path: Path to the file to modify
+            link_data: LinkData object containing information about where to add the link
+            relation_link: The relation link string to add (e.g., "[[related-file.md]]")
+            
+        Returns:
+            bool: True if the relation link was successfully added, False otherwise
+                  (returns False if link already exists, line number is out of range, or any error occurs)
         """
         try:
             # Create backup if configured
@@ -58,7 +86,18 @@ class FileRewriter:
             return False
     
     async def _create_backup(self, file_path: Path):
-        """Create a backup of the file before modification"""
+        """Create a backup of the file before modification.
+        
+        This method creates a backup copy of the file with a .bak extension
+        to allow for recovery in case of errors during file modification.
+        
+        Args:
+            file_path: Path to the file for which to create a backup
+            
+        Note:
+            If backup creation fails, a warning is printed but the operation continues
+            to avoid blocking the main rewriting process.
+        """
         backup_path = file_path.with_suffix(file_path.suffix + '.bak')
         try:
             shutil.copy2(file_path, backup_path)
@@ -67,8 +106,19 @@ class FileRewriter:
             print(f"Warning: Could not create backup for {file_path.name}: {e}")
     
     async def _safe_write_file(self, file_path: Path, lines: list):
-        """
-        Safely write to a file using a temporary file to prevent data loss
+        """Safely write to a file using a temporary file to prevent data loss.
+        
+        This method uses a temporary file to write the content first, then
+        atomically replaces the original file. This ensures that if the write
+        operation fails, the original file is not corrupted.
+        
+        Args:
+            file_path: Path to the file to write to
+            lines: List of lines to write to the file
+            
+        Raises:
+            Exception: If any error occurs during the write operation,
+                       the temporary file is cleaned up and the exception is re-raised
         """
         # Create a temporary file
         temp_file = None
@@ -89,7 +139,19 @@ class FileRewriter:
             raise e
     
     async def restore_backup(self, file_path: Path) -> bool:
-        """Restore a file from backup if available"""
+        """Restore a file from backup if available.
+        
+        This method attempts to restore a file from its backup copy (.bak file)
+        if the backup exists. This is useful for recovering from failed file
+        modification operations.
+        
+        Args:
+            file_path: Path to the file to restore from backup
+            
+        Returns:
+            bool: True if the file was successfully restored from backup,
+                  False if no backup exists or if restoration fails
+        """
         backup_path = file_path.with_suffix(file_path.suffix + '.bak')
         if backup_path.exists():
             try:

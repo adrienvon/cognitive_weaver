@@ -45,7 +45,18 @@ class KnowledgeGraph:
         self.load()
     
     def add_node(self, node_id: str, label: str, node_type: str = "concept", importance: float = 1.0) -> GraphNode:
-        """Add or update a node in the graph"""
+        """
+        Add or update a node in the graph.
+        
+        Args:
+            node_id (str): The unique identifier for the node.
+            label (str): The display label for the node.
+            node_type (str, optional): The type of the node (e.g., "concept"). Defaults to "concept".
+            importance (float, optional): The importance weight of the node. Defaults to 1.0.
+        
+        Returns:
+            GraphNode: The added or updated node object.
+        """
         current_time = datetime.now().isoformat()
         
         if node_id in self.nodes:
@@ -71,7 +82,18 @@ class KnowledgeGraph:
         return node
     
     def add_edge(self, source: str, target: str, relationship: str, strength: float = 1.0) -> Optional[GraphEdge]:
-        """Add or update an edge between nodes"""
+        """
+        Add or update an edge between nodes.
+        
+        Args:
+            source (str): The source node ID.
+            target (str): The target node ID.
+            relationship (str): The type of relationship between nodes.
+            strength (float, optional): The strength of the relationship. Defaults to 1.0.
+        
+        Returns:
+            Optional[GraphEdge]: The added or updated edge object, or None if nodes don't exist.
+        """
         # Check if both nodes exist
         if source not in self.nodes or target not in self.nodes:
             return None
@@ -103,14 +125,24 @@ class KnowledgeGraph:
         return edge
     
     def to_json(self) -> dict:
-        """Convert the graph to JSON format"""
+        """
+        Convert the graph to JSON format.
+        
+        Returns:
+            dict: A dictionary representation of the graph with nodes and edges.
+        """
         return {
             "nodes": [asdict(node) for node in self.nodes.values()],
             "edges": [asdict(edge) for edge in self.edge_objects.values()]
         }
     
     def save(self, path: Optional[Path] = None):
-        """Save the graph to a JSON file"""
+        """
+        Save the graph to a JSON file.
+        
+        Args:
+            path (Optional[Path]): The path to save the graph to. If None, uses the default storage path.
+        """
         save_path = path or self.storage_path
         save_path.parent.mkdir(parents=True, exist_ok=True)
         
@@ -118,7 +150,12 @@ class KnowledgeGraph:
             json.dump(self.to_json(), f, ensure_ascii=False, indent=2)
     
     def load(self, path: Optional[Path] = None):
-        """Load the graph from a JSON file"""
+        """
+        Load the graph from a JSON file.
+        
+        Args:
+            path (Optional[Path]): The path to load the graph from. If None, uses the default storage path.
+        """
         load_path = path or self.storage_path
         
         if not load_path.exists():
@@ -144,11 +181,27 @@ class KnowledgeGraph:
             print(f"Error loading knowledge graph: {e}")
     
     def get_node(self, node_id: str) -> Optional[GraphNode]:
-        """Get a node by ID"""
+        """
+        Get a node by ID.
+        
+        Args:
+            node_id (str): The ID of the node to retrieve.
+        
+        Returns:
+            Optional[GraphNode]: The node object if found, otherwise None.
+        """
         return self.nodes.get(node_id)
     
     def get_edges(self, node_id: str = None) -> List[GraphEdge]:
-        """Get all edges or edges for a specific node"""
+        """
+        Get all edges or edges for a specific node.
+        
+        Args:
+            node_id (str, optional): The node ID to filter edges by. If None, returns all edges.
+        
+        Returns:
+            List[GraphEdge]: A list of edge objects.
+        """
         if node_id is None:
             return list(self.edge_objects.values())
         
@@ -156,11 +209,18 @@ class KnowledgeGraph:
                 if edge.source == node_id or edge.target == node_id]
     
     def export_json(self) -> str:
-        """Export the graph as JSON string"""
+        """
+        Export the graph as JSON string.
+        
+        Returns:
+            str: A JSON string representation of the graph.
+        """
         return json.dumps(self.to_json(), ensure_ascii=False, indent=2)
     
     def clear(self):
-        """Clear the graph"""
+        """
+        Clear the graph by removing all nodes and edges.
+        """
         self.nodes.clear()
         self.edges.clear()
         self.edge_objects.clear()

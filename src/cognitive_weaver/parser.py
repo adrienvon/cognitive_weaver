@@ -10,7 +10,16 @@ from dataclasses import dataclass
 
 @dataclass
 class LinkData:
-    """Data structure for extracted links with context"""
+    """Data structure for extracted links with context
+    
+    Attributes:
+        source_note (str): Name of the source note where the link is found
+        target_note (str): Name of the target note being linked to
+        context_text (str): Text context surrounding the link
+        line_number (int): Line number where the link appears in the source file
+        original_line (str): The complete line containing the link
+        relation_link (str): Relation type inferred by AI (e.g., "简单提及", "支撑观点")
+    """
     source_note: str
     target_note: str
     context_text: str
@@ -22,6 +31,12 @@ class LinkParser:
     """Parses Obsidian links from markdown files and extracts context"""
     
     def __init__(self, config):
+        """
+        Initialize the link parser with configuration.
+        
+        Args:
+            config: Configuration object containing parsing settings
+        """
         self.config = config
         # Regex to find Obsidian wiki links: [[target_note]] or [[target_note|display_text]]
         self.link_pattern = re.compile(r'\[\[(.*?)\]\]')
@@ -30,13 +45,15 @@ class LinkParser:
     
     def parse_file(self, file_path: Path, skip_relation_links: bool = True) -> List[LinkData]:
         """
-        Parse a markdown file and extract all Obsidian links with context
-        Returns a list of LinkData objects
+        Parse a markdown file and extract all Obsidian links with context.
         
         Args:
-            file_path: Path to the markdown file
-            skip_relation_links: If True, skip lines that already have relation links
-                                (to avoid infinite processing). If False, include all lines.
+            file_path (Path): Path to the markdown file to parse
+            skip_relation_links (bool): If True, skip lines that already have relation links
+                                       to avoid infinite processing. If False, include all lines.
+        
+        Returns:
+            List[LinkData]: A list of LinkData objects containing link information and context
         """
         if not file_path.exists():
             return []
@@ -86,8 +103,16 @@ class LinkParser:
     
     def extract_context(self, lines: List[str], line_num: int, start_pos: int, end_pos: int) -> str:
         """
-        Extract context around a link within the text
-        Returns a string with the link and surrounding text
+        Extract context around a link within the text.
+        
+        Args:
+            lines (List[str]): List of all lines from the file
+            line_num (int): Line number where the link is found (1-based index)
+            start_pos (int): Starting position of the link within the line
+            end_pos (int): Ending position of the link within the line
+            
+        Returns:
+            str: A string containing the link and surrounding context text
         """
         context_window = self.config.file_monitoring.context_window_size
         current_line = lines[line_num - 1]

@@ -13,6 +13,12 @@ class AIInferenceEngine:
     """Handles AI inference for relationship extraction"""
     
     def __init__(self, config):
+        """
+        Initialize the AI inference engine with configuration.
+        
+        Args:
+            config: The configuration object containing AI model settings.
+        """
         self.config = config
         self.client = None
         self.initialize_client()
@@ -79,7 +85,17 @@ class AIInferenceEngine:
 """
     
     async def generate_response(self, prompt: str, system_prompt: str = None) -> str:
-        """Generate a response from the AI model for general prompts"""
+        """
+        Generate a response from the AI model for a general prompt.
+        
+        Args:
+            prompt (str): The user prompt to send to the AI model.
+            system_prompt (str, optional): The system prompt to set the context. 
+                Defaults to a generic assistant prompt.
+        
+        Returns:
+            str: The generated response from the AI model.
+        """
         if system_prompt is None:
             system_prompt = "你是一位有帮助的AI助手，擅长文本分析和关键词提取。"
         

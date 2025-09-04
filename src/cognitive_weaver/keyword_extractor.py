@@ -33,8 +33,13 @@ class KeywordExtractor:
     
     def extract_keywords_from_file(self, file_path: Path) -> List[KeywordData]:
         """
-        Extract potential keywords from a markdown file
-        Returns a list of KeywordData objects
+        Extract potential keywords from a markdown file.
+        
+        Args:
+            file_path (Path): The path to the markdown file to extract keywords from.
+        
+        Returns:
+            List[KeywordData]: A list of KeywordData objects containing extracted keywords with context.
         """
         if not file_path.exists():
             return []
@@ -73,8 +78,14 @@ class KeywordExtractor:
     
     def _extract_keywords_from_text(self, text: str) -> List[str]:
         """
-        Extract potential keywords from text using improved heuristics for Chinese
-        Focuses on meaningful words and reduces noise from fragments
+        Extract potential keywords from text using improved heuristics for Chinese.
+        Focuses on meaningful words and reduces noise from fragments.
+        
+        Args:
+            text (str): The text to extract keywords from.
+        
+        Returns:
+            List[str]: A list of extracted keywords.
         """
         # Remove punctuation and split into words
         words = re.findall(r'[\u4e00-\u9fff\w]+', text)
@@ -123,7 +134,16 @@ class KeywordExtractor:
     
     def _extract_keyword_context(self, lines: List[str], line_num: int, line: str, keyword: str) -> str:
         """
-        Extract context around a keyword within the text
+        Extract context around a keyword within the text.
+        
+        Args:
+            lines (List[str]): All lines from the file.
+            line_num (int): The line number where the keyword appears.
+            line (str): The specific line containing the keyword.
+            keyword (str): The keyword to extract context for.
+        
+        Returns:
+            str: The context text around the keyword.
         """
         context_window = self.config.file_monitoring.context_window_size
         
@@ -155,8 +175,13 @@ class KeywordExtractor:
     
     async def find_similar_keywords(self, keyword_data_list: List[KeywordData]) -> Dict[str, List[KeywordData]]:
         """
-        Use AI to find similar keywords that should be linked together
-        Returns a dictionary mapping normalized keyword to list of KeywordData objects
+        Use AI to find similar keywords that should be linked together.
+        
+        Args:
+            keyword_data_list (List[KeywordData]): List of KeywordData objects to analyze for similarity.
+        
+        Returns:
+            Dict[str, List[KeywordData]]: A dictionary mapping normalized keywords to lists of similar KeywordData objects.
         """
         # Group keywords by their base form for initial clustering
         keyword_groups = {}
@@ -181,7 +206,13 @@ class KeywordExtractor:
     async def _ai_verify_similarity(self, keyword_group: List[KeywordData]) -> List[KeywordData]:
         """
         Use AI to verify if keywords in a group refer to the same concept
-        with improved semantic understanding for psychology concepts
+        with improved semantic understanding for psychology concepts.
+        
+        Args:
+            keyword_group (List[KeywordData]): A group of KeywordData objects to verify for similarity.
+        
+        Returns:
+            List[KeywordData]: The verified group of similar keywords, or an empty list if not similar.
         """
         if len(keyword_group) < 2:
             return keyword_group

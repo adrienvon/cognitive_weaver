@@ -168,8 +168,16 @@ class VaultMonitor:
             print(f"Processing file: {file_path.name}")
             
             try:
-                # 从文件中解析链接
-                links_with_context = self.link_parser.parse_file(file_path)
+                # 从文件中解析链接（包括已有关系链接的行中的内容链接）
+                links_with_context = self.link_parser.parse_file(file_path, skip_relation_links=False)
+                
+                # 过滤掉关系链接，只处理内容链接
+                content_links = []
+                for link_data in links_with_context:
+                    if link_data.target_note not in self.config.relations.predefined_relations:
+                        content_links.append(link_data)
+                
+                links_with_context = content_links
                 
                 if links_with_context:
                     print(f"Found {len(links_with_context)} links in {file_path.name}")

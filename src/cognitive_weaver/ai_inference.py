@@ -102,15 +102,19 @@ class AIInferenceEngine:
         if system_prompt is None:
             system_prompt = "你是一位有帮助的AI助手，擅长文本分析和关键词提取。"
         
-        # 发起 API 调用
-        response = self.client.chat.completions.create(
-            model=self.config.ai_model.model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=self.config.ai_model.temperature,
-            max_tokens=200
+        # 在事件循环中运行同步API调用
+        loop = asyncio.get_event_loop()
+        response = await loop.run_in_executor(
+            None,
+            lambda: self.client.chat.completions.create(
+                model=self.config.ai_model.model_name,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=self.config.ai_model.temperature,
+                max_tokens=200
+            )
         )
         
         return response.choices[0].message.content
@@ -140,15 +144,19 @@ class AIInferenceEngine:
 - 引出主题
 - 简单提及"""
         
-        # 发起 API 调用
-        response = self.client.chat.completions.create(
-            model=self.config.ai_model.model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=self.config.ai_model.temperature,
-            max_tokens=50
+        # 在事件循环中运行同步API调用
+        loop = asyncio.get_event_loop()
+        response = await loop.run_in_executor(
+            None,
+            lambda: self.client.chat.completions.create(
+                model=self.config.ai_model.model_name,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=self.config.ai_model.temperature,
+                max_tokens=50
+            )
         )
         
         return response.choices[0].message.content

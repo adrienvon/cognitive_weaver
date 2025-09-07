@@ -1,0 +1,114 @@
+{
+  "nodes": [
+    {
+      "id": "人活着的四个驱动",
+      "label": "人活着的四个驱动",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.919158",
+      "last_updated": "2025-09-07T19:56:06.919158",
+      "occurrences": 1
+    },
+    {
+      "id": "攻击性",
+      "label": "攻击性",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.919158",
+      "last_updated": "2025-09-07T19:56:06.919158",
+      "occurrences": 1
+    },
+    {
+      "id": "创伤性事件即诱因",
+      "label": "创伤性事件即诱因",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.927206",
+      "last_updated": "2025-09-07T19:56:06.934656",
+      "occurrences": 4
+    },
+    {
+      "id": "童年创伤",
+      "label": "童年创伤",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.927206",
+      "last_updated": "2025-09-07T19:56:06.927206",
+      "occurrences": 1
+    },
+    {
+      "id": "炸药",
+      "label": "炸药",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.929958",
+      "last_updated": "2025-09-07T19:56:06.929958",
+      "occurrences": 1
+    },
+    {
+      "id": "心理学",
+      "label": "心理学",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.931541",
+      "last_updated": "2025-09-07T19:56:06.931541",
+      "occurrences": 1
+    },
+    {
+      "id": "诱因",
+      "label": "诱因",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T19:56:06.934656",
+      "last_updated": "2025-09-07T19:56:06.934656",
+      "occurrences": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "人活着的四个驱动",
+      "target": "攻击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T19:56:06.919158",
+      "last_updated": "2025-09-07T19:56:06.919158",
+      "occurrences": 1
+    },
+    {
+      "source": "创伤性事件即诱因",
+      "target": "童年创伤",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T19:56:06.927206",
+      "last_updated": "2025-09-07T19:56:06.927206",
+      "occurrences": 1
+    },
+    {
+      "source": "创伤性事件即诱因",
+      "target": "炸药",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T19:56:06.929958",
+      "last_updated": "2025-09-07T19:56:06.929958",
+      "occurrences": 1
+    },
+    {
+      "source": "创伤性事件即诱因",
+      "target": "心理学",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T19:56:06.931541",
+      "last_updated": "2025-09-07T19:56:06.931541",
+      "occurrences": 1
+    },
+    {
+      "source": "创伤性事件即诱因",
+      "target": "诱因",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T19:56:06.934656",
+      "last_updated": "2025-09-07T19:56:06.934656",
+      "occurrences": 1
+    }
+  ]
+}

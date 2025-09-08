@@ -124,7 +124,13 @@ class AIInferenceEngine:
         # 如果客户端不可用（模拟模式），返回模拟响应
         if self.client is None:
             print("Using mock AI response for testing")
-            return "[[简单提及]]"
+            # 检查是否是关键词相似性验证请求
+            if "是否指向同一个心理学概念" in prompt or "相同概念" in prompt:
+                # 对于关键词相似性验证，返回肯定回答以便测试
+                return "是"
+            else:
+                # 对于关系推理，返回关系链接
+                return "[[简单提及]]"
         
         # 来自提示词文件的系统提示词
         system_prompt = """你是一位专注于知识图谱分析的AI助手，对Obsidian的链接哲学有深刻理解。你的核心任务是：

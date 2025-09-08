@@ -6,8 +6,8 @@
       "type": "concept",
       "importance": 1.0,
       "first_seen": "2025-09-04T11:39:30.690068",
-      "last_updated": "2025-09-04T11:39:30.690068",
-      "occurrences": 1
+      "last_updated": "2025-09-07T20:07:48.113610",
+      "occurrences": 11
     },
     {
       "id": "攻击性",
@@ -15,7 +15,133 @@
       "type": "concept",
       "importance": 1.0,
       "first_seen": "2025-09-04T11:39:30.691068",
-      "last_updated": "2025-09-04T11:39:30.691068",
+      "last_updated": "2025-09-07T20:07:48.130264",
+      "occurrences": 7
+    },
+    {
+      "id": "测试链接关系",
+      "label": "测试链接关系",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.131528",
+      "last_updated": "2025-09-07T20:07:48.154431",
+      "occurrences": 32
+    },
+    {
+      "id": "性驱力",
+      "label": "性驱力",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.131528",
+      "last_updated": "2025-09-07T20:07:48.118427",
+      "occurrences": 4
+    },
+    {
+      "id": "关系驱动",
+      "label": "关系驱动",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.134449",
+      "last_updated": "2025-09-07T20:07:48.121868",
+      "occurrences": 4
+    },
+    {
+      "id": "自恋",
+      "label": "自恋",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.137301",
+      "last_updated": "2025-09-07T20:07:48.126732",
+      "occurrences": 4
+    },
+    {
+      "id": "创伤性事件",
+      "label": "创伤性事件",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.148919",
+      "last_updated": "2025-09-07T20:07:48.128814",
+      "occurrences": 2
+    },
+    {
+      "id": "力比多",
+      "label": "力比多",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.164337",
+      "last_updated": "2025-09-07T20:07:48.137185",
+      "occurrences": 4
+    },
+    {
+      "id": "唠叨",
+      "label": "唠叨",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.165470",
+      "last_updated": "2025-09-07T20:07:48.136452",
+      "occurrences": 2
+    },
+    {
+      "id": "口欲期",
+      "label": "口欲期",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.169649",
+      "last_updated": "2025-09-07T20:07:48.138584",
+      "occurrences": 2
+    },
+    {
+      "id": "防御机制",
+      "label": "防御机制",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.181097",
+      "last_updated": "2025-09-07T20:07:48.142941",
+      "occurrences": 2
+    },
+    {
+      "id": "人格",
+      "label": "人格",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.183319",
+      "last_updated": "2025-09-07T20:07:48.144950",
+      "occurrences": 3
+    },
+    {
+      "id": "疾病",
+      "label": "疾病",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.184818",
+      "last_updated": "2025-09-07T20:07:48.146853",
+      "occurrences": 2
+    },
+    {
+      "id": "无意识",
+      "label": "无意识",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.197122",
+      "last_updated": "2025-09-07T20:07:48.151332",
+      "occurrences": 4
+    },
+    {
+      "id": "感受",
+      "label": "感受",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:02.201377",
+      "last_updated": "2025-09-07T20:07:48.154431",
+      "occurrences": 2
+    },
+    {
+      "id": "心理健康",
+      "label": "心理健康",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-07T20:07:48.113610",
+      "last_updated": "2025-09-07T20:07:48.113610",
       "occurrences": 1
     }
   ],
@@ -26,7 +152,169 @@
       "relationship": "简单提及",
       "strength": 1.0,
       "first_seen": "2025-09-04T11:39:30.691068",
-      "last_updated": "2025-09-04T11:39:30.691068",
+      "last_updated": "2025-09-07T20:07:48.080524",
+      "occurrences": 3
+    },
+    {
+      "source": "测试链接关系",
+      "target": "性驱力",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.131528",
+      "last_updated": "2025-09-07T20:07:48.118427",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "攻击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.132990",
+      "last_updated": "2025-09-07T20:07:48.130264",
+      "occurrences": 4
+    },
+    {
+      "source": "测试链接关系",
+      "target": "关系驱动",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.134449",
+      "last_updated": "2025-09-07T20:07:48.121868",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "自恋",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.137301",
+      "last_updated": "2025-09-07T20:07:48.126732",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "创伤性事件",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.148919",
+      "last_updated": "2025-09-07T20:07:48.128814",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "力比多",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.164337",
+      "last_updated": "2025-09-07T20:07:48.137185",
+      "occurrences": 4
+    },
+    {
+      "source": "测试链接关系",
+      "target": "唠叨",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.165470",
+      "last_updated": "2025-09-07T20:07:48.136452",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "口欲期",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.169649",
+      "last_updated": "2025-09-07T20:07:48.138584",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "防御机制",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.181097",
+      "last_updated": "2025-09-07T20:07:48.142941",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.183319",
+      "last_updated": "2025-09-07T20:07:48.144950",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "疾病",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.184818",
+      "last_updated": "2025-09-07T20:07:48.146853",
+      "occurrences": 2
+    },
+    {
+      "source": "测试链接关系",
+      "target": "无意识",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.197122",
+      "last_updated": "2025-09-07T20:07:48.151332",
+      "occurrences": 4
+    },
+    {
+      "source": "测试链接关系",
+      "target": "感受",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:02.201377",
+      "last_updated": "2025-09-07T20:07:48.154431",
+      "occurrences": 2
+    },
+    {
+      "source": "人活着的四个驱动",
+      "target": "性驱力",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:48.056764",
+      "last_updated": "2025-09-07T20:07:48.078582",
+      "occurrences": 2
+    },
+    {
+      "source": "人活着的四个驱动",
+      "target": "关系驱动",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:48.063631",
+      "last_updated": "2025-09-07T20:07:48.088696",
+      "occurrences": 2
+    },
+    {
+      "source": "人活着的四个驱动",
+      "target": "自恋",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:48.063631",
+      "last_updated": "2025-09-07T20:07:48.096929",
+      "occurrences": 2
+    },
+    {
+      "source": "人活着的四个驱动",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:48.109022",
+      "last_updated": "2025-09-07T20:07:48.109022",
+      "occurrences": 1
+    },
+    {
+      "source": "人活着的四个驱动",
+      "target": "心理健康",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-07T20:07:48.113610",
+      "last_updated": "2025-09-07T20:07:48.113610",
       "occurrences": 1
     }
   ]

@@ -73,6 +73,9 @@ python -m cognitive_weaver.cli process-folder /path/to/your/folder
 # 处理配置指定的文件夹
 python -m cognitive_weaver.cli process-config-folders --config config.yaml
 
+# 关键词自动链接处理（推荐功能）
+python -m cognitive_weaver.cli process-keywords /path/to/your/folder
+
 # 更新知识图谱（处理所有文件）
 python -m cognitive_weaver.cli update-knowledge-graph /path/to/your/obsidian/vault
 
@@ -85,6 +88,137 @@ python -m cognitive_weaver.cli export-knowledge-graph
 # 清空知识图谱数据
 python -m cognitive_weaver.cli clear-knowledge-graph
 ```
+
+## 关键词自动链接工作流程详解
+
+### 核心功能：`process-keywords` 命令
+
+`process-keywords` 是 Cognitive Weaver 的核心功能之一，它能够智能地分析文件夹中的所有笔记，自动识别相似的概念并为它们创建 Obsidian 双链链接。
+
+#### 使用方法
+```bash
+python -m cognitive_weaver.cli process-keywords "tests/精神分析"
+```
+
+#### 完整工作流程
+
+##### 1. **命令解析与初始化** (`cli.py`)
+- 验证目标文件夹路径的有效性
+- 加载配置文件（`config.yaml` 或 `config.example.yaml`）
+- 初始化核心组件：VaultMonitor、KeywordExtractor、AIInferenceEngine
+
+##### 2. **文件扫描与过滤** (`monitor.py`)
+- 递归扫描指定文件夹中的所有 `.md` 文件
+- 自动过滤备份文件（`.bak`）和配置中指定的忽略模式
+- 输出：`Found X markdown files in the folder`
+
+##### 3. **智能关键词提取** (`keyword_extractor.py`)
+对每个 Markdown 文件执行以下操作：
+
+**文本预处理**：
+- 逐行读取文件内容
+- 跳过已包含 `[[]]` 格式链接的行（避免重复处理）
+- 移除标点符号和特殊字符
+
+**中文关键词提取算法**：
+- 使用正则表达式 `[\u4e00-\u9fff\w]+` 提取中文字符和单词
+- 智能分割策略：
+  - 短词语（≤4字符）：直接作为候选关键词
+  - 长词语（>4字符）：使用滑动窗口提取2-3字符的有意义片段
+- 停用词过滤：排除"的"、"了"、"在"、"是"等无意义词汇
+- 质量控制：过滤数字、单字符和包含停用词的组合
+
+**上下文提取**：
+- 为每个关键词提取周围的上下文文本
+- 包含前后行的部分内容以提供语义环境
+- 输出：`Found X potential keywords across Y files`
+
+##### 4. **AI驱动的相似性分析** (`ai_inference.py`)
+
+**初始分组**：
+- 按标准化形式（转小写）对关键词进行初步聚类
+- 只处理出现多次的关键词组（避免单次出现的噪音）
+
+**AI语义验证**：
+对每个候选关键词组执行以下分析：
+- 构建详细的分析提示，包含：
+  - 关键词本身
+  - 出现的上下文
+  - 所在文件名
+- 发送给AI模型进行语义相似性判断
+- AI提示示例：
+```
+你是一位心理学知识图谱专家，擅长识别中文心理学概念之间的语义相似性。
+
+请分析以下关键词是否指向同一个心理学概念或实体：
+关键词: '攻击性', 上下文: '攻击性是人格的重要组成部分', 文件: 攻击性与力比多.md
+关键词: '攻击性', 上下文: '一个人的疾病是攻击性投注出了问题', 文件: 疾病分析.md
+
+如果这些关键词确实指向同一个心理学概念，回复"是"，否则回复"否"。
+```
+- 输出：`Found X groups of similar keywords`
+
+##### 5. **自动链接生成** (`rewriter.py`)
+
+**安全文件操作**：
+- 为每个要修改的文件自动创建 `.bak` 备份
+- 使用原子操作确保文件完整性
+
+**链接插入算法**：
+- 在文件中定位关键词的精确位置
+- 将关键词转换为 `[[关键词]]` 格式
+- 保持原文件的格式、缩进和结构不变
+- 避免重复链接（跳过已有链接的行）
+
+**处理示例**：
+```markdown
+# 处理前
+攻击性是人格的重要组成部分，它与力比多共同作用。
+
+# 处理后  
+[[攻击性]]是人格的重要组成部分，它与[[力比多]]共同作用。
+```
+
+##### 6. **知识图谱更新** (`knowledge_graph.py`)
+- 将新创建的概念链接添加到知识图谱
+- 更新节点（概念）和边（关系）信息
+- 自动保存到 `user_knowledge_graph.json` 文件
+
+#### 实际执行示例
+
+```bash
+$ python -m cognitive_weaver.cli process-keywords "tests/精神分析"
+
+Processing keywords for folder: c:\Users\baoba\Desktop\cognitive_weaver\tests\精神分析
+Found 16 markdown files in the folder
+Found 966 potential keywords across 16 files
+Found 95 groups of similar keywords
+Linking 3 occurrences of '攻击性'
+Linking 2 occurrences of '力比多'  
+Linking 4 occurrences of '母亲'
+Linking 2 occurrences of '防御'
+Linking 3 occurrences of '焦虑'
+...
+Keyword linking completed.
+```
+
+#### 技术特点
+
+1. **智能而非机械**：使用AI语义分析而非简单的字符串匹配
+2. **安全可靠**：自动备份机制，防止数据丢失
+3. **批量高效**：一次处理整个文件夹的所有笔记
+4. **Obsidian兼容**：生成标准的 `[[]]` 双链链接格式
+5. **上下文感知**：考虑关键词的使用语境进行智能判断
+6. **专业优化**：针对特定领域（如心理学）进行概念识别优化
+
+#### 适用场景
+
+- **学术研究**：自动识别和链接相关的学术概念
+- **知识整理**：将散乱的笔记转换为结构化的知识网络
+- **概念梳理**：发现笔记中的重复概念并建立关联
+- **知识图谱构建**：为 Obsidian 知识库自动建立概念关系网络
+
+这个工作流程的核心价值在于将人工的概念识别和链接工作自动化，让用户能够专注于内容创作，而由系统负责维护知识结构的一致性和完整性。
 
 ## 调试指南
 

@@ -1,9 +1,6 @@
 """
 Cognitive Weaver 的 AI 推理模块
 处理与 AI 模型的通信以进行关系提取
-
-AI inference module for Cognitive Weaver
-Handles communication with AI models for relationship extraction
 """
 
 import asyncio
@@ -44,10 +41,10 @@ class AIInferenceEngine:
                     base_url=ai_config.base_url or "https://api.openai.com/v1"
                 )
             else:
-                raise ValueError(f"Unsupported AI provider: {ai_config.provider}")
+                raise ValueError(f"不支持的 AI 提供商: {ai_config.provider}")
         except Exception as e:
-            print(f"Warning: Could not initialize AI client: {e}")
-            print("Using mock mode for testing.")
+            print(f"警告: 无法初始化 AI 客户端: {e}")
+            print("使用模拟模式进行测试。")
             self.client = None
     
     async def infer_relation(self, link_data: LinkData) -> Optional[str]:
@@ -68,13 +65,13 @@ class AIInferenceEngine:
             if relation_link and self._is_valid_relation(relation_link):
                 return relation_link
             else:
-                print(f"Invalid relation link received: {relation_link}")
+                print(f"收到无效的关系链接: {relation_link}")
                 return None
                 
         except Exception as e:
-            print(f"AI inference error: {e}")
+            print(f"AI 推理错误: {e}")
             # 用于测试目的，返回模拟关系
-            print("Using mock relation for testing: [[简单提及]]")
+            print("使用模拟关系进行测试: [[简单提及]]")
             return "[[简单提及]]"
     
     def _build_prompt(self, link_data: LinkData) -> str:
@@ -123,7 +120,7 @@ class AIInferenceEngine:
         """使用准备好的提示词调用 AI 模型"""
         # 如果客户端不可用（模拟模式），返回模拟响应
         if self.client is None:
-            print("Using mock AI response for testing")
+            print("使用模拟 AI 响应进行测试")
             # 检查是否是关键词相似性验证请求
             if "是否指向同一个心理学概念" in prompt or "相同概念" in prompt:
                 # 对于关键词相似性验证，返回肯定回答以便测试

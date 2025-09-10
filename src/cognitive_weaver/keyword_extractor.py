@@ -1,10 +1,6 @@
 """
 Cognitive Weaver 关键词提取模块
 处理从Markdown文件中提取潜在关键词和基于AI的相似性检测以进行链接
-
-Keyword extraction module for Cognitive Weaver
-Handles extraction of potential keywords from markdown files
-and AI-based similarity detection for linking
 """
 
 import re
@@ -15,9 +11,7 @@ from .ai_inference import AIInferenceEngine
 
 @dataclass
 class KeywordData:
-    """包含上下文的提取关键词的数据结构
-    Data structure for extracted keywords with context
-    """
+    """包含上下文的提取关键词的数据结构"""
     keyword: str
     file_path: Path
     context: str
@@ -25,9 +19,7 @@ class KeywordData:
     original_line: str
 
 class KeywordExtractor:
-    """从Markdown文件中提取潜在关键词并处理基于AI的链接
-    Extracts potential keywords from Markdown files and handles AI-based linking
-    """
+    """从Markdown文件中提取潜在关键词并处理基于AI的链接"""
     
     def __init__(self, config, ai_engine: AIInferenceEngine):
         self.config = config
@@ -79,7 +71,7 @@ class KeywordExtractor:
                     keywords.append(keyword_data)
         
         except Exception as e:
-            print(f"Error extracting keywords from file {file_path}: {e}")
+            print(f"从文件 {file_path} 提取关键词时出错: {e}")
         
         return keywords
     
@@ -256,5 +248,5 @@ class KeywordExtractor:
             else:
                 return []
         except Exception as e:
-            print(f"AI similarity verification error: {e}")
+            print(f"AI 相似性验证错误: {e}")
             return []  # 在AI失败时不假设相似性

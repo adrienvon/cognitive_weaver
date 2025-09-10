@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 Cognitive Weaver CLI - AI驱动的Obsidian知识图谱结构化引擎的主要入口点
-Cognitive Weaver CLI - Main entry point for the AI-powered Obsidian knowledge graph structuring engine
 """
 
 import typer
@@ -17,19 +16,19 @@ app = typer.Typer(help="Cognitive Weaver - AI-powered Obsidian knowledge graph s
 
 @app.command()
 def start(
-    vault_path: str = typer.Argument(..., help="Path to your Obsidian vault directory"),
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file"),
-    watch: bool = typer.Option(True, "--watch/--no-watch", help="Enable file watching mode"),
-    batch: bool = typer.Option(False, "--batch", "-b", help="Process entire vault in batch mode")
+    vault_path: str = typer.Argument(..., help="Obsidian仓库目录路径"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径"),
+    watch: bool = typer.Option(True, "--watch/--no-watch", help="启用文件监控模式"),
+    batch: bool = typer.Option(False, "--batch", "-b", help="批量处理整个仓库")
 ):
     """
-    Start the Cognitive Weaver service to monitor and process Obsidian notes.
+    启动Cognitive Weaver服务来监控和处理Obsidian笔记
     
     Args:
-        vault_path (str): Path to the Obsidian vault directory to monitor.
-        config_file (Optional[str]): Path to a custom configuration file.
-        watch (bool): Whether to enable file watching mode for real-time processing.
-        batch (bool): Whether to process the entire vault in batch mode.
+        vault_path (str): 要监控的Obsidian仓库目录路径
+        config_file (Optional[str]): 自定义配置文件路径
+        watch (bool): 是否启用文件监控模式进行实时处理
+        batch (bool): 是否以批量模式处理整个仓库
     """
     try:
         # Load configuration
@@ -63,15 +62,15 @@ def start(
 
 @app.command()
 def process_folder(
-    folder_path: str = typer.Argument(..., help="Path to the folder containing markdown files to process"),
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    folder_path: str = typer.Argument(..., help="包含要处理的Markdown文件的文件夹路径"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Process all markdown files in a specific folder.
+    处理特定文件夹中的所有Markdown文件
     
     Args:
-        folder_path (str): Path to the folder containing markdown files to process.
-        config_file (Optional[str]): Path to a custom configuration file.
+        folder_path (str): 包含要处理的Markdown文件的文件夹路径
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -100,13 +99,13 @@ def process_folder(
 
 @app.command()
 def process_config_folders(
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Process all markdown files in folders specified in the configuration file.
+    处理配置文件中指定的所有文件夹中的Markdown文件
     
     Args:
-        config_file (Optional[str]): Path to a custom configuration file.
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -145,15 +144,15 @@ def process_config_folders(
 
 @app.command()
 def process_keywords(
-    folder_path: str = typer.Argument(..., help="Path to the folder containing markdown files to process for keyword linking"),
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    folder_path: str = typer.Argument(..., help="包含要进行关键词链接处理的Markdown文件的文件夹路径"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Process keywords across all markdown files in a folder and create Obsidian links for similar concepts.
+    处理文件夹中所有Markdown文件的关键词并为相似概念创建Obsidian链接
     
     Args:
-        folder_path (str): Path to the folder containing markdown files to process.
-        config_file (Optional[str]): Path to a custom configuration file.
+        folder_path (str): 包含要处理的Markdown文件的文件夹路径
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -184,15 +183,15 @@ def process_keywords(
 
 @app.command()
 def export_knowledge_graph(
-    output_file: Optional[str] = typer.Option(None, "--output", "-o", help="Output file path for the knowledge graph"),
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    output_file: Optional[str] = typer.Option(None, "--output", "-o", help="知识图谱输出文件路径"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Export the user's knowledge graph to a JSON file.
+    将用户的知识图谱导出到JSON文件
     
     Args:
-        output_file (Optional[str]): Output file path for the knowledge graph JSON.
-        config_file (Optional[str]): Path to a custom configuration file.
+        output_file (Optional[str]): 知识图谱JSON的输出文件路径
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -218,13 +217,13 @@ def export_knowledge_graph(
 
 @app.command()
 def show_knowledge_graph(
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Display the current knowledge graph structure.
+    显示当前知识图谱结构
     
     Args:
-        config_file (Optional[str]): Path to a custom configuration file.
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -258,13 +257,13 @@ def show_knowledge_graph(
 
 @app.command()
 def clear_knowledge_graph(
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Clear the current knowledge graph.
+    清除当前知识图谱
     
     Args:
-        config_file (Optional[str]): Path to a custom configuration file.
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -283,15 +282,15 @@ def clear_knowledge_graph(
 
 @app.command()
 def update_knowledge_graph(
-    vault_path: str = typer.Argument(..., help="Path to your Obsidian vault directory"),
-    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="Path to configuration file")
+    vault_path: str = typer.Argument(..., help="Obsidian仓库目录路径"),
+    config_file: Optional[str] = typer.Option(None, "--config", "-c", help="配置文件路径")
 ):
     """
-    Update knowledge graph from all existing files, including those with relation links.
+    从所有现有文件（包括具有关系链接的文件）更新知识图谱
     
     Args:
-        vault_path (str): Path to the Obsidian vault directory to update.
-        config_file (Optional[str]): Path to a custom configuration file.
+        vault_path (str): 要更新的Obsidian仓库目录路径
+        config_file (Optional[str]): 自定义配置文件路径
     """
     try:
         # Load configuration
@@ -318,7 +317,7 @@ def update_knowledge_graph(
 
 @app.command()
 def version():
-    """Show the version of Cognitive Weaver."""
+    """显示Cognitive Weaver的版本"""
     from . import __version__
     typer.echo(f"Cognitive Weaver v{__version__}")
 

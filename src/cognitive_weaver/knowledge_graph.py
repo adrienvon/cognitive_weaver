@@ -1,10 +1,6 @@
 """
 Cognitive Weaver 知识图谱模块
 处理用户配置文件作为图结构的存储和管理，包含节点（概念）和边（关系）
-
-Knowledge Graph module for Cognitive Weaver
-Handles storage and management of user profile as a graph structure
-with nodes (concepts) and edges (relationships)
 """
 
 import json
@@ -40,11 +36,11 @@ class KnowledgeGraph:
     
     def __init__(self, storage_path: Optional[Path] = None):
         self.nodes: Dict[str, GraphNode] = {}
-        self.edges: Set[str] = set()  # Store edges as "source|target|relationship" for uniqueness
+        self.edges: Set[str] = set()  # 存储边为 "source|target|relationship" 以确保唯一性
         self.edge_objects: Dict[str, GraphEdge] = {}
         self.storage_path = storage_path or Path("user_knowledge_graph.json")
         
-        # Load existing graph if available
+        # 如果可用，加载现有图谱
         self.load()
     
     def add_node(self, node_id: str, label: str, node_type: str = "concept", importance: float = 1.0) -> GraphNode:
@@ -63,14 +59,14 @@ class KnowledgeGraph:
         current_time = datetime.now().isoformat()
         
         if node_id in self.nodes:
-            # Update existing node
+            # 更新现有节点
             node = self.nodes[node_id]
             node.last_updated = current_time
             node.occurrences += 1
-            # Gradually adjust importance based on new occurrences
+            # 基于新出现次数逐步调整重要性
             node.importance = (node.importance * (node.occurrences - 1) + importance) / node.occurrences
         else:
-            # Create new node
+            # 创建新节点
             node = GraphNode(
                 id=node_id,
                 label=label,
@@ -97,7 +93,7 @@ class KnowledgeGraph:
         返回:
             Optional[GraphEdge]: 添加或更新的边对象，如果节点不存在则返回 None。
         """
-        # Check if both nodes exist
+        # 检查两个节点是否存在
         if source not in self.nodes or target not in self.nodes:
             return None
         
@@ -105,14 +101,14 @@ class KnowledgeGraph:
         current_time = datetime.now().isoformat()
         
         if edge_key in self.edges:
-            # Update existing edge
+            # 更新现有边
             edge = self.edge_objects[edge_key]
             edge.last_updated = current_time
             edge.occurrences += 1
-            # Gradually adjust strength based on new occurrences
+            # 基于新出现次数逐步调整强度
             edge.strength = (edge.strength * (edge.occurrences - 1) + strength) / edge.occurrences
         else:
-            # Create new edge
+            # 创建新边
             edge = GraphEdge(
                 source=source,
                 target=target,
@@ -168,12 +164,12 @@ class KnowledgeGraph:
             with open(load_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
-            # Load nodes
+            # 加载节点
             for node_data in data.get("nodes", []):
                 node = GraphNode(**node_data)
                 self.nodes[node.id] = node
             
-            # Load edges
+            # 加载边
             for edge_data in data.get("edges", []):
                 edge = GraphEdge(**edge_data)
                 edge_key = f"{edge.source}|{edge.target}|{edge.relationship}"
@@ -181,7 +177,7 @@ class KnowledgeGraph:
                 self.edge_objects[edge_key] = edge
                 
         except Exception as e:
-            print(f"Error loading knowledge graph: {e}")
+            print(f"加载知识图谱时出错: {e}")
     
     def get_node(self, node_id: str) -> Optional[GraphNode]:
         """

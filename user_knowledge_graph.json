@@ -6,8 +6,8 @@
       "type": "concept",
       "importance": 1.0,
       "first_seen": "2025-09-04T11:39:30.690068",
-      "last_updated": "2025-09-07T20:07:48.113610",
-      "occurrences": 11
+      "last_updated": "2025-09-09T20:18:14.087394",
+      "occurrences": 13
     },
     {
       "id": "攻击性",
@@ -15,8 +15,8 @@
       "type": "concept",
       "importance": 1.0,
       "first_seen": "2025-09-04T11:39:30.691068",
-      "last_updated": "2025-09-07T20:07:48.130264",
-      "occurrences": 7
+      "last_updated": "2025-09-09T20:18:14.076211",
+      "occurrences": 10
     },
     {
       "id": "测试链接关系",
@@ -51,8 +51,8 @@
       "type": "concept",
       "importance": 1.0,
       "first_seen": "2025-09-07T20:07:02.137301",
-      "last_updated": "2025-09-07T20:07:48.126732",
-      "occurrences": 4
+      "last_updated": "2025-09-09T20:18:14.237001",
+      "occurrences": 8
     },
     {
       "id": "创伤性事件",
@@ -105,8 +105,8 @@
       "type": "concept",
       "importance": 1.0,
       "first_seen": "2025-09-07T20:07:02.183319",
-      "last_updated": "2025-09-07T20:07:48.144950",
-      "occurrences": 3
+      "last_updated": "2025-09-09T20:18:15.624308",
+      "occurrences": 8
     },
     {
       "id": "疾病",
@@ -143,6 +143,699 @@
       "first_seen": "2025-09-07T20:07:48.113610",
       "last_updated": "2025-09-07T20:07:48.113610",
       "occurrences": 1
+    },
+    {
+      "id": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "label": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.305113",
+      "last_updated": "2025-09-09T20:18:13.564006",
+      "occurrences": 22
+    },
+    {
+      "id": "个人",
+      "label": "个人",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.305113",
+      "last_updated": "2025-09-09T20:18:13.673166",
+      "occurrences": 2
+    },
+    {
+      "id": "攻[[击性",
+      "label": "攻[[击性",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.314654",
+      "last_updated": "2025-09-09T20:18:15.233515",
+      "occurrences": 5
+    },
+    {
+      "id": "力比",
+      "label": "力比",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.320852",
+      "last_updated": "2025-09-09T20:18:15.243564",
+      "occurrences": 4
+    },
+    {
+      "id": "投注",
+      "label": "投注",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.327368",
+      "last_updated": "2025-09-09T20:18:13.564006",
+      "occurrences": 5
+    },
+    {
+      "id": "问题",
+      "label": "问题",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.333903",
+      "last_updated": "2025-09-09T20:18:14.506166",
+      "occurrences": 2
+    },
+    {
+      "id": "母亲",
+      "label": "母亲",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.374887",
+      "last_updated": "2025-09-09T20:18:15.009174",
+      "occurrences": 4
+    },
+    {
+      "id": "回应",
+      "label": "回应",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.393691",
+      "last_updated": "2025-09-09T20:18:13.551467",
+      "occurrences": 2
+    },
+    {
+      "id": "恰当",
+      "label": "恰当",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.401215",
+      "last_updated": "2025-09-09T20:18:15.438816",
+      "occurrences": 2
+    },
+    {
+      "id": "代替",
+      "label": "代替",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.442587",
+      "last_updated": "2025-09-09T20:18:13.525975",
+      "occurrences": 2
+    },
+    {
+      "id": "自己",
+      "label": "自己",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.490648",
+      "last_updated": "2025-09-09T20:18:15.078096",
+      "occurrences": 5
+    },
+    {
+      "id": "客体",
+      "label": "客体",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.539401",
+      "last_updated": "2025-09-09T20:18:14.964924",
+      "occurrences": 5
+    },
+    {
+      "id": "不能",
+      "label": "不能",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.545909",
+      "last_updated": "2025-09-09T20:18:15.031226",
+      "occurrences": 2
+    },
+    {
+      "id": "高级",
+      "label": "高级",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.558004",
+      "last_updated": "2025-09-09T20:18:15.487343",
+      "occurrences": 2
+    },
+    {
+      "id": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "label": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.630803",
+      "last_updated": "2025-09-09T20:18:13.771975",
+      "occurrences": 10
+    },
+    {
+      "id": "安全感",
+      "label": "安全感",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.640030",
+      "last_updated": "2025-09-09T20:18:13.682678",
+      "occurrences": 2
+    },
+    {
+      "id": "意识",
+      "label": "意识",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.688222",
+      "last_updated": "2025-09-09T20:18:14.778797",
+      "occurrences": 3
+    },
+    {
+      "id": "中对",
+      "label": "中对",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.695232",
+      "last_updated": "2025-09-09T20:18:15.359304",
+      "occurrences": 2
+    },
+    {
+      "id": "攻击",
+      "label": "攻击",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.761452",
+      "last_updated": "2025-09-09T20:18:15.284208",
+      "occurrences": 2
+    },
+    {
+      "id": "三类人",
+      "label": "三类人",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.837416",
+      "last_updated": "2025-09-09T20:18:13.908167",
+      "occurrences": 7
+    },
+    {
+      "id": "神经症",
+      "label": "神经症",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.837416",
+      "last_updated": "2025-09-09T20:18:13.837416",
+      "occurrences": 1
+    },
+    {
+      "id": "[[神经",
+      "label": "[[神经",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.865977",
+      "last_updated": "2025-09-09T20:18:14.313450",
+      "occurrences": 2
+    },
+    {
+      "id": "冲突",
+      "label": "冲突",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.876046",
+      "last_updated": "2025-09-09T20:18:15.586153",
+      "occurrences": 2
+    },
+    {
+      "id": "惩罚",
+      "label": "惩罚",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.883256",
+      "last_updated": "2025-09-09T20:18:14.849941",
+      "occurrences": 2
+    },
+    {
+      "id": "可能",
+      "label": "可能",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.896348",
+      "last_updated": "2025-09-09T20:18:14.228912",
+      "occurrences": 2
+    },
+    {
+      "id": "[[潜意",
+      "label": "[[潜意",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.908167",
+      "last_updated": "2025-09-09T20:18:13.908167",
+      "occurrences": 1
+    },
+    {
+      "id": "人格在非常早非常短的时间形成",
+      "label": "人格在非常早非常短的时间形成",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:13.991964",
+      "last_updated": "2025-09-09T20:18:14.004496",
+      "occurrences": 2
+    },
+    {
+      "id": "形成",
+      "label": "形成",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.004496",
+      "last_updated": "2025-09-09T20:18:14.294583",
+      "occurrences": 2
+    },
+    {
+      "id": "克莱因的客体关系理论",
+      "label": "克莱因的客体关系理论",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.157526",
+      "last_updated": "2025-09-09T20:18:14.366992",
+      "occurrences": 24
+    },
+    {
+      "id": "[[系理",
+      "label": "[[系理",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.169056",
+      "last_updated": "2025-09-09T20:18:14.354321",
+      "occurrences": 2
+    },
+    {
+      "id": "一个",
+      "label": "一个",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.190221",
+      "last_updated": "2025-09-09T20:18:15.536501",
+      "occurrences": 3
+    },
+    {
+      "id": "原始",
+      "label": "原始",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.196730",
+      "last_updated": "2025-09-09T20:18:15.259310",
+      "occurrences": 2
+    },
+    {
+      "id": "影响",
+      "label": "影响",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.264044",
+      "last_updated": "2025-09-09T20:18:15.385370",
+      "occurrences": 2
+    },
+    {
+      "id": "早年",
+      "label": "早年",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.269553",
+      "last_updated": "2025-09-09T20:18:14.955401",
+      "occurrences": 2
+    },
+    {
+      "id": "父母",
+      "label": "父母",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.276126",
+      "last_updated": "2025-09-09T20:18:15.395264",
+      "occurrences": 2
+    },
+    {
+      "id": "孩子",
+      "label": "孩子",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.282114",
+      "last_updated": "2025-09-09T20:18:15.191600",
+      "occurrences": 2
+    },
+    {
+      "id": "关系",
+      "label": "关系",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.288585",
+      "last_updated": "2025-09-09T20:18:15.407034",
+      "occurrences": 5
+    },
+    {
+      "id": "心理",
+      "label": "心理",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.300102",
+      "last_updated": "2025-09-09T20:18:15.512396",
+      "occurrences": 3
+    },
+    {
+      "id": "创伤",
+      "label": "创伤",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.307456",
+      "last_updated": "2025-09-09T20:18:14.443286",
+      "occurrences": 3
+    },
+    {
+      "id": "水平",
+      "label": "水平",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.320028",
+      "last_updated": "2025-09-09T20:18:14.320028",
+      "occurrences": 1
+    },
+    {
+      "id": "障碍",
+      "label": "障碍",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.326030",
+      "last_updated": "2025-09-09T20:18:14.524330",
+      "occurrences": 2
+    },
+    {
+      "id": "行为",
+      "label": "行为",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.360480",
+      "last_updated": "2025-09-09T20:18:14.932311",
+      "occurrences": 3
+    },
+    {
+      "id": "创伤性事件即诱因",
+      "label": "创伤性事件即诱因",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.412438",
+      "last_updated": "2025-09-09T20:18:14.451801",
+      "occurrences": 4
+    },
+    {
+      "id": "诱因",
+      "label": "诱因",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.420957",
+      "last_updated": "2025-09-09T20:18:14.451801",
+      "occurrences": 2
+    },
+    {
+      "id": "原始焦虑：害怕自身破碎担心边界被突破",
+      "label": "原始焦虑：害怕自身破碎担心边界被突破",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.485128",
+      "last_updated": "2025-09-09T20:18:14.530491",
+      "occurrences": 5
+    },
+    {
+      "id": "边界",
+      "label": "边界",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.485128",
+      "last_updated": "2025-09-09T20:18:15.635488",
+      "occurrences": 2
+    },
+    {
+      "id": "症[[水平",
+      "label": "症[[水平",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.530491",
+      "last_updated": "2025-09-09T20:18:14.530491",
+      "occurrences": 1
+    },
+    {
+      "id": "性冲动跟道德之间的关系表现为强迫症",
+      "label": "性冲动跟道德之间的关系表现为强迫症",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.577671",
+      "last_updated": "2025-09-09T20:18:14.849941",
+      "occurrences": 28
+    },
+    {
+      "id": "道德",
+      "label": "道德",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.577671",
+      "last_updated": "2025-09-09T20:18:14.826470",
+      "occurrences": 2
+    },
+    {
+      "id": "之间",
+      "label": "之间",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.586182",
+      "last_updated": "2025-09-09T20:18:15.576698",
+      "occurrences": 2
+    },
+    {
+      "id": "表现",
+      "label": "表现",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.600717",
+      "last_updated": "2025-09-09T20:18:15.159388",
+      "occurrences": 2
+    },
+    {
+      "id": "强迫",
+      "label": "强迫",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.609229",
+      "last_updated": "2025-09-09T20:18:14.714535",
+      "occurrences": 3
+    },
+    {
+      "id": "仪式",
+      "label": "仪式",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.669889",
+      "last_updated": "2025-09-09T20:18:14.740647",
+      "occurrences": 2
+    },
+    {
+      "id": "用来",
+      "label": "用来",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.679424",
+      "last_updated": "2025-09-09T20:18:14.679424",
+      "occurrences": 1
+    },
+    {
+      "id": "隔离",
+      "label": "隔离",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.686425",
+      "last_updated": "2025-09-09T20:18:14.747198",
+      "occurrences": 2
+    },
+    {
+      "id": "情感",
+      "label": "情感",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.693924",
+      "last_updated": "2025-09-09T20:18:14.693924",
+      "occurrences": 1
+    },
+    {
+      "id": "一种",
+      "label": "一种",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.732093",
+      "last_updated": "2025-09-09T20:18:14.808010",
+      "occurrences": 2
+    },
+    {
+      "id": "来隔",
+      "label": "来隔",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.756718",
+      "last_updated": "2025-09-09T20:18:14.756718",
+      "occurrences": 1
+    },
+    {
+      "id": "离[[情感",
+      "label": "离[[情感",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.763733",
+      "last_updated": "2025-09-09T20:18:14.763733",
+      "occurrences": 1
+    },
+    {
+      "id": "来隔离",
+      "label": "来隔离",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.771252",
+      "last_updated": "2025-09-09T20:18:14.771252",
+      "occurrences": 1
+    },
+    {
+      "id": "隔[[离情",
+      "label": "隔[[离情",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.787339",
+      "last_updated": "2025-09-09T20:18:14.787339",
+      "occurrences": 1
+    },
+    {
+      "id": "象征",
+      "label": "象征",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.815994",
+      "last_updated": "2025-09-09T20:18:15.294270",
+      "occurrences": 2
+    },
+    {
+      "id": "心中",
+      "label": "心中",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.834357",
+      "last_updated": "2025-09-09T20:18:14.834357",
+      "occurrences": 1
+    },
+    {
+      "id": "恐怖是对热爱的掩饰",
+      "label": "恐怖是对热爱的掩饰",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.883530",
+      "last_updated": "2025-09-09T20:18:15.078096",
+      "occurrences": 16
+    },
+    {
+      "id": "热爱",
+      "label": "热爱",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.883530",
+      "last_updated": "2025-09-09T20:18:14.914749",
+      "occurrences": 2
+    },
+    {
+      "id": "掩饰",
+      "label": "掩饰",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.892049",
+      "last_updated": "2025-09-09T20:18:14.924272",
+      "occurrences": 2
+    },
+    {
+      "id": "通过",
+      "label": "通过",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.981951",
+      "last_updated": "2025-09-09T20:18:15.041742",
+      "occurrences": 2
+    },
+    {
+      "id": "控制",
+      "label": "控制",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:14.999439",
+      "last_updated": "2025-09-09T20:18:15.060777",
+      "occurrences": 2
+    },
+    {
+      "id": "攻击性与力比多的表现化",
+      "label": "攻击性与力比多的表现化",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.123048",
+      "last_updated": "2025-09-09T20:18:15.294270",
+      "occurrences": 14
+    },
+    {
+      "id": "力[[比多",
+      "label": "力[[比多",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.169920",
+      "last_updated": "2025-09-09T20:18:15.272688",
+      "occurrences": 2
+    },
+    {
+      "id": "表达",
+      "label": "表达",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.181434",
+      "last_updated": "2025-09-09T20:18:15.251084",
+      "occurrences": 2
+    },
+    {
+      "id": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "label": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.359304",
+      "last_updated": "2025-09-09T20:18:15.586153",
+      "occurrences": 19
+    },
+    {
+      "id": "治疗",
+      "label": "治疗",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.450389",
+      "last_updated": "2025-09-09T20:18:15.526438",
+      "occurrences": 2
+    },
+    {
+      "id": "能够",
+      "label": "能够",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.460522",
+      "last_updated": "2025-09-09T20:18:15.567652",
+      "occurrences": 2
+    },
+    {
+      "id": "[[来访",
+      "label": "[[来访",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.469052",
+      "last_updated": "2025-09-09T20:18:15.548039",
+      "occurrences": 2
+    },
+    {
+      "id": "访者",
+      "label": "访者",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.557070",
+      "last_updated": "2025-09-09T20:18:15.557070",
+      "occurrences": 1
+    },
+    {
+      "id": "防御是人格的边界",
+      "label": "防御是人格的边界",
+      "type": "concept",
+      "importance": 1.0,
+      "first_seen": "2025-09-09T20:18:15.624308",
+      "last_updated": "2025-09-09T20:18:15.635488",
+      "occurrences": 2
     }
   ],
   "edges": [
@@ -152,8 +845,8 @@
       "relationship": "简单提及",
       "strength": 1.0,
       "first_seen": "2025-09-04T11:39:30.691068",
-      "last_updated": "2025-09-07T20:07:48.080524",
-      "occurrences": 3
+      "last_updated": "2025-09-09T20:18:14.076720",
+      "occurrences": 4
     },
     {
       "source": "测试链接关系",
@@ -296,8 +989,8 @@
       "relationship": "简单提及",
       "strength": 1.0,
       "first_seen": "2025-09-07T20:07:48.063631",
-      "last_updated": "2025-09-07T20:07:48.096929",
-      "occurrences": 2
+      "last_updated": "2025-09-09T20:18:14.087394",
+      "occurrences": 3
     },
     {
       "source": "人活着的四个驱动",
@@ -315,6 +1008,1059 @@
       "strength": 1.0,
       "first_seen": "2025-09-07T20:07:48.113610",
       "last_updated": "2025-09-07T20:07:48.113610",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "个人",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.305113",
+      "last_updated": "2025-09-09T20:18:13.305113",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "攻[[击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.314654",
+      "last_updated": "2025-09-09T20:18:13.314654",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "力比",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.320852",
+      "last_updated": "2025-09-09T20:18:13.320852",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "投注",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.327368",
+      "last_updated": "2025-09-09T20:18:13.564006",
+      "occurrences": 5
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "问题",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.333903",
+      "last_updated": "2025-09-09T20:18:13.333903",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "母亲",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.374887",
+      "last_updated": "2025-09-09T20:18:13.533048",
+      "occurrences": 3
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "回应",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.393691",
+      "last_updated": "2025-09-09T20:18:13.551467",
+      "occurrences": 2
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "恰当",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.401215",
+      "last_updated": "2025-09-09T20:18:13.401215",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "代替",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.442587",
+      "last_updated": "2025-09-09T20:18:13.525975",
+      "occurrences": 2
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "自己",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.490648",
+      "last_updated": "2025-09-09T20:18:13.490648",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "自恋",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.496167",
+      "last_updated": "2025-09-09T20:18:13.496167",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "客体",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.539401",
+      "last_updated": "2025-09-09T20:18:13.539401",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "不能",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.545909",
+      "last_updated": "2025-09-09T20:18:13.545909",
+      "occurrences": 1
+    },
+    {
+      "source": "一个人的疾病是攻击性和力比多投注或投注方式出了问题",
+      "target": "高级",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.558004",
+      "last_updated": "2025-09-09T20:18:13.558004",
+      "occurrences": 1
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "攻击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.630803",
+      "last_updated": "2025-09-09T20:18:13.728579",
+      "occurrences": 2
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "安全感",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.640030",
+      "last_updated": "2025-09-09T20:18:13.682678",
+      "occurrences": 2
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "个人",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.673166",
+      "last_updated": "2025-09-09T20:18:13.673166",
+      "occurrences": 1
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "意识",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.688222",
+      "last_updated": "2025-09-09T20:18:13.688222",
+      "occurrences": 1
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "中对",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.695232",
+      "last_updated": "2025-09-09T20:18:13.695232",
+      "occurrences": 1
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "攻[[击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.701558",
+      "last_updated": "2025-09-09T20:18:13.701558",
+      "occurrences": 1
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "攻击",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.761452",
+      "last_updated": "2025-09-09T20:18:13.761452",
+      "occurrences": 1
+    },
+    {
+      "source": "一级词汇二级词汇（攻击性and安全感、自卑）",
+      "target": "自己",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.771975",
+      "last_updated": "2025-09-09T20:18:13.771975",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "神经症",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.837416",
+      "last_updated": "2025-09-09T20:18:13.837416",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "[[神经",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.865977",
+      "last_updated": "2025-09-09T20:18:13.865977",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "冲突",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.876046",
+      "last_updated": "2025-09-09T20:18:13.876046",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "惩罚",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.883256",
+      "last_updated": "2025-09-09T20:18:13.883256",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "意识",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.889348",
+      "last_updated": "2025-09-09T20:18:13.889348",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "可能",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.896348",
+      "last_updated": "2025-09-09T20:18:13.896348",
+      "occurrences": 1
+    },
+    {
+      "source": "三类人",
+      "target": "[[潜意",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.908167",
+      "last_updated": "2025-09-09T20:18:13.908167",
+      "occurrences": 1
+    },
+    {
+      "source": "人格在非常早非常短的时间形成",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:13.991964",
+      "last_updated": "2025-09-09T20:18:13.991964",
+      "occurrences": 1
+    },
+    {
+      "source": "人格在非常早非常短的时间形成",
+      "target": "形成",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.004496",
+      "last_updated": "2025-09-09T20:18:14.004496",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "客体",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.157526",
+      "last_updated": "2025-09-09T20:18:14.346109",
+      "occurrences": 3
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "[[系理",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.169056",
+      "last_updated": "2025-09-09T20:18:14.354321",
+      "occurrences": 2
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "一个",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.190221",
+      "last_updated": "2025-09-09T20:18:14.190221",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "原始",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.196730",
+      "last_updated": "2025-09-09T20:18:14.196730",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "自恋",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.202738",
+      "last_updated": "2025-09-09T20:18:14.237001",
+      "occurrences": 2
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "可能",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.228912",
+      "last_updated": "2025-09-09T20:18:14.228912",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.257043",
+      "last_updated": "2025-09-09T20:18:14.257043",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "影响",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.264044",
+      "last_updated": "2025-09-09T20:18:14.264044",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "早年",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.269553",
+      "last_updated": "2025-09-09T20:18:14.269553",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "父母",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.276126",
+      "last_updated": "2025-09-09T20:18:14.276126",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "孩子",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.282667",
+      "last_updated": "2025-09-09T20:18:14.282667",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "关系",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.288585",
+      "last_updated": "2025-09-09T20:18:14.366992",
+      "occurrences": 2
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "形成",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.294583",
+      "last_updated": "2025-09-09T20:18:14.294583",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "心理",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.300102",
+      "last_updated": "2025-09-09T20:18:14.300102",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "创伤",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.307456",
+      "last_updated": "2025-09-09T20:18:14.307456",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "[[神经",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.313450",
+      "last_updated": "2025-09-09T20:18:14.313450",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "水平",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.320028",
+      "last_updated": "2025-09-09T20:18:14.320028",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "障碍",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.326030",
+      "last_updated": "2025-09-09T20:18:14.326030",
+      "occurrences": 1
+    },
+    {
+      "source": "克莱因的客体关系理论",
+      "target": "行为",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.360480",
+      "last_updated": "2025-09-09T20:18:14.360480",
+      "occurrences": 1
+    },
+    {
+      "source": "创伤性事件即诱因",
+      "target": "创伤",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.412438",
+      "last_updated": "2025-09-09T20:18:14.443286",
+      "occurrences": 2
+    },
+    {
+      "source": "创伤性事件即诱因",
+      "target": "诱因",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.420957",
+      "last_updated": "2025-09-09T20:18:14.451801",
+      "occurrences": 2
+    },
+    {
+      "source": "原始焦虑：害怕自身破碎担心边界被突破",
+      "target": "边界",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.485128",
+      "last_updated": "2025-09-09T20:18:14.485128",
+      "occurrences": 1
+    },
+    {
+      "source": "原始焦虑：害怕自身破碎担心边界被突破",
+      "target": "问题",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.506166",
+      "last_updated": "2025-09-09T20:18:14.506166",
+      "occurrences": 1
+    },
+    {
+      "source": "原始焦虑：害怕自身破碎担心边界被突破",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.514803",
+      "last_updated": "2025-09-09T20:18:14.514803",
+      "occurrences": 1
+    },
+    {
+      "source": "原始焦虑：害怕自身破碎担心边界被突破",
+      "target": "障碍",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.524330",
+      "last_updated": "2025-09-09T20:18:14.524330",
+      "occurrences": 1
+    },
+    {
+      "source": "原始焦虑：害怕自身破碎担心边界被突破",
+      "target": "症[[水平",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.530491",
+      "last_updated": "2025-09-09T20:18:14.530491",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "道德",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.577671",
+      "last_updated": "2025-09-09T20:18:14.826470",
+      "occurrences": 2
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "之间",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.586182",
+      "last_updated": "2025-09-09T20:18:14.586182",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "关系",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.593191",
+      "last_updated": "2025-09-09T20:18:14.593191",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "表现",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.600717",
+      "last_updated": "2025-09-09T20:18:14.600717",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "强迫",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.609229",
+      "last_updated": "2025-09-09T20:18:14.714535",
+      "occurrences": 3
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "攻[[击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.640333",
+      "last_updated": "2025-09-09T20:18:14.640333",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "力比",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.648853",
+      "last_updated": "2025-09-09T20:18:14.648853",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "仪式",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.669889",
+      "last_updated": "2025-09-09T20:18:14.740647",
+      "occurrences": 2
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "用来",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.679424",
+      "last_updated": "2025-09-09T20:18:14.679424",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "隔离",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.686425",
+      "last_updated": "2025-09-09T20:18:14.747198",
+      "occurrences": 2
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "情感",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.693924",
+      "last_updated": "2025-09-09T20:18:14.693924",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "行为",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.725059",
+      "last_updated": "2025-09-09T20:18:14.725059",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "一种",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.732093",
+      "last_updated": "2025-09-09T20:18:14.808010",
+      "occurrences": 2
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "来隔",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.756718",
+      "last_updated": "2025-09-09T20:18:14.756718",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "离[[情感",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.763733",
+      "last_updated": "2025-09-09T20:18:14.763733",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "来隔离",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.771252",
+      "last_updated": "2025-09-09T20:18:14.771252",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "意识",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.778797",
+      "last_updated": "2025-09-09T20:18:14.778797",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "隔[[离情",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.787339",
+      "last_updated": "2025-09-09T20:18:14.787339",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "象征",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.815994",
+      "last_updated": "2025-09-09T20:18:14.815994",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "心中",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.834357",
+      "last_updated": "2025-09-09T20:18:14.834357",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "自己",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.841874",
+      "last_updated": "2025-09-09T20:18:14.841874",
+      "occurrences": 1
+    },
+    {
+      "source": "性冲动跟道德之间的关系表现为强迫症",
+      "target": "惩罚",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.849941",
+      "last_updated": "2025-09-09T20:18:14.849941",
+      "occurrences": 1
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "热爱",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.883530",
+      "last_updated": "2025-09-09T20:18:14.914749",
+      "occurrences": 2
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "掩饰",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.892049",
+      "last_updated": "2025-09-09T20:18:14.924272",
+      "occurrences": 2
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "行为",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.932311",
+      "last_updated": "2025-09-09T20:18:14.932311",
+      "occurrences": 1
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "早年",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.955401",
+      "last_updated": "2025-09-09T20:18:14.955401",
+      "occurrences": 1
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "客体",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.964924",
+      "last_updated": "2025-09-09T20:18:14.964924",
+      "occurrences": 1
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "关系",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.974444",
+      "last_updated": "2025-09-09T20:18:14.974444",
+      "occurrences": 1
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "通过",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.981951",
+      "last_updated": "2025-09-09T20:18:15.041742",
+      "occurrences": 2
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "自己",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.991379",
+      "last_updated": "2025-09-09T20:18:15.078096",
+      "occurrences": 2
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "控制",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:14.999439",
+      "last_updated": "2025-09-09T20:18:15.061779",
+      "occurrences": 2
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "母亲",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.009174",
+      "last_updated": "2025-09-09T20:18:15.009174",
+      "occurrences": 1
+    },
+    {
+      "source": "恐怖是对热爱的掩饰",
+      "target": "不能",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.031226",
+      "last_updated": "2025-09-09T20:18:15.031226",
+      "occurrences": 1
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "攻[[击性",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.123048",
+      "last_updated": "2025-09-09T20:18:15.233515",
+      "occurrences": 2
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "力比",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.147853",
+      "last_updated": "2025-09-09T20:18:15.243564",
+      "occurrences": 2
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "表现",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.159388",
+      "last_updated": "2025-09-09T20:18:15.159388",
+      "occurrences": 1
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "力[[比多",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.169920",
+      "last_updated": "2025-09-09T20:18:15.272688",
+      "occurrences": 2
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "表达",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.181434",
+      "last_updated": "2025-09-09T20:18:15.251084",
+      "occurrences": 2
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "孩子",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.191600",
+      "last_updated": "2025-09-09T20:18:15.191600",
+      "occurrences": 1
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "心理",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.204134",
+      "last_updated": "2025-09-09T20:18:15.204134",
+      "occurrences": 1
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "原始",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.259310",
+      "last_updated": "2025-09-09T20:18:15.259310",
+      "occurrences": 1
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "攻击",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.284208",
+      "last_updated": "2025-09-09T20:18:15.284208",
+      "occurrences": 1
+    },
+    {
+      "source": "攻击性与力比多的表现化",
+      "target": "象征",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.294270",
+      "last_updated": "2025-09-09T20:18:15.294270",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "中对",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.359304",
+      "last_updated": "2025-09-09T20:18:15.359304",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.370817",
+      "last_updated": "2025-09-09T20:18:15.370817",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "影响",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.385370",
+      "last_updated": "2025-09-09T20:18:15.385370",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "父母",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.395264",
+      "last_updated": "2025-09-09T20:18:15.395264",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "关系",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.407034",
+      "last_updated": "2025-09-09T20:18:15.407034",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "恰当",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.438816",
+      "last_updated": "2025-09-09T20:18:15.438816",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "治疗",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.450389",
+      "last_updated": "2025-09-09T20:18:15.526438",
+      "occurrences": 2
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "能够",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.460522",
+      "last_updated": "2025-09-09T20:18:15.567652",
+      "occurrences": 2
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "[[来访",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.469052",
+      "last_updated": "2025-09-09T20:18:15.548039",
+      "occurrences": 2
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "一个",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.478187",
+      "last_updated": "2025-09-09T20:18:15.536501",
+      "occurrences": 2
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "高级",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.487343",
+      "last_updated": "2025-09-09T20:18:15.487343",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "心理",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.512396",
+      "last_updated": "2025-09-09T20:18:15.512396",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "访者",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.557070",
+      "last_updated": "2025-09-09T20:18:15.557070",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "之间",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.576698",
+      "last_updated": "2025-09-09T20:18:15.576698",
+      "occurrences": 1
+    },
+    {
+      "source": "调节心中对人格有决定性影响的父母关系（治疗）",
+      "target": "冲突",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.586153",
+      "last_updated": "2025-09-09T20:18:15.586153",
+      "occurrences": 1
+    },
+    {
+      "source": "防御是人格的边界",
+      "target": "人格",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.624308",
+      "last_updated": "2025-09-09T20:18:15.624308",
+      "occurrences": 1
+    },
+    {
+      "source": "防御是人格的边界",
+      "target": "边界",
+      "relationship": "简单提及",
+      "strength": 1.0,
+      "first_seen": "2025-09-09T20:18:15.635488",
+      "last_updated": "2025-09-09T20:18:15.635488",
       "occurrences": 1
     }
   ]

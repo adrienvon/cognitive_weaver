@@ -1,9 +1,6 @@
 """
 Cognitive Weaver 配置模块
 处理应用程序的配置设置
-
-Configuration module for Cognitive Weaver
-Handles application configuration settings
 """
 
 from pathlib import Path
@@ -13,11 +10,11 @@ from pydantic import BaseModel, Field
 
 class AIModelConfig(BaseModel):
     """AI 模型设置的配置"""
-    provider: str = Field("openai", description="AI provider: openai, ollama, deepseek, etc.")
-    model_name: str = Field("gpt-3.5-turbo", description="Model name to use")
-    api_key: Optional[str] = Field(None, description="API key for the provider")
-    base_url: Optional[str] = Field(None, description="Base URL for API calls")
-    temperature: float = Field(0.1, description="Temperature for AI responses")
+    provider: str = Field("openai", description="AI提供商：openai、ollama、deepseek等")
+    model_name: str = Field("gpt-3.5-turbo", description="要使用的模型名称")
+    api_key: Optional[str] = Field(None, description="提供商的API密钥")
+    base_url: Optional[str] = Field(None, description="API调用的基础URL")
+    temperature: float = Field(0.1, description="AI响应的温度参数")
 
 class RelationConfig(BaseModel):
     """关系类型的配置"""
@@ -32,24 +29,24 @@ class RelationConfig(BaseModel):
             "引出主题",
             "简单提及"
         ],
-        description="Predefined relationship types"
+        description="预定义的关系类型"
     )
-    custom_relations: List[str] = Field(default_factory=list, description="Custom relationship types")
+    custom_relations: List[str] = Field(default_factory=list, description="自定义关系类型")
 
 class FileMonitoringConfig(BaseModel):
     """文件监控的配置"""
-    watch_extensions: List[str] = Field(default_factory=lambda: [".md"], description="File extensions to watch")
-    context_window_size: int = Field(100, description="Number of characters around links for context")
-    ignore_patterns: List[str] = Field(default_factory=lambda: ["/.git/", "/.obsidian/"], description="Patterns to ignore")
-    folders_to_scan: List[str] = Field(default_factory=list, description="List of folder paths to scan for markdown files")
+    watch_extensions: List[str] = Field(default_factory=lambda: [".md"], description="要监控的文件扩展名")
+    context_window_size: int = Field(100, description="链接周围的字符数用于上下文")
+    ignore_patterns: List[str] = Field(default_factory=lambda: ["/.git/", "/.obsidian/"], description="要忽略的模式")
+    folders_to_scan: List[str] = Field(default_factory=list, description="要扫描Markdown文件的文件夹路径列表")
 
 class CognitiveWeaverConfig(BaseModel):
     """主配置模型"""
     ai_model: AIModelConfig = Field(default_factory=AIModelConfig)
     relations: RelationConfig = Field(default_factory=RelationConfig)
     file_monitoring: FileMonitoringConfig = Field(default_factory=FileMonitoringConfig)
-    max_retries: int = Field(3, description="Maximum retries for AI calls")
-    backup_files: bool = Field(True, description="Whether to create backups before modifying files")
+    max_retries: int = Field(3, description="AI调用的最大重试次数")
+    backup_files: bool = Field(True, description="是否在修改文件前创建备份")
 
 def load_config(config_file: Optional[str] = None) -> CognitiveWeaverConfig:
     """

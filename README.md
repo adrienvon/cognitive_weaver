@@ -7,7 +7,7 @@ AI驱动的Obsidian知识图谱结构化引擎
 
 详细的技术规划和迁移方案请参考：[MOFA移植.md](MOFA移植.md)
 
-https://github.com/adrienvon/AIOS
+仓库：https://github.com/adrienvon/AIOS
 
 ## 项目概述
 

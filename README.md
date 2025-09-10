@@ -2,6 +2,10 @@
 ## 下一阶段：MOFA框架迁移技术规划
 AI驱动的Obsidian知识图谱结构化引擎
 
+本项目计划迁移到MOFA（Modular Obsidian Framework Architecture）框架，以实现更好的模块化、扩展性和维护性。MOFA框架将提供标准化的接口和组件架构，使Cognitive Weaver能够更灵活地集成各种AI模型和处理管道。
+
+详细的技术规划和迁移方案请参考：[MOFA移植.md](MOFA移植.md)
+
 ## 项目概述
 
 Cognitive Weaver 是一个运行在本地的AI引擎，它能自动分析Obsidian笔记间的链接上下文，**智能地推断其逻辑关系，并以[[关系]]链接的形式将这种关系"固化"回笔记中**，从而将用户原本混乱的知识图谱，重构为一张结构清晰、可被分析的"认知地图"。

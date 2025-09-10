@@ -1,6 +1,7 @@
 # Cognitive Weaver (认知织网者)
-## 下一阶段：MOFA框架迁移技术规划
 AI驱动的Obsidian知识图谱结构化引擎
+
+## 下一阶段：MOFA框架迁移技术规划
 
 本项目计划迁移到MOFA（Modular Obsidian Framework Architecture）框架，以实现更好的模块化、扩展性和维护性。MOFA框架将提供标准化的接口和组件架构，使Cognitive Weaver能够更灵活地集成各种AI模型和处理管道。
 
